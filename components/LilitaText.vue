@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <span class="lilita-one text-white text-4xl">
+  <span class="lilita-one text-white">
     <slot/>
   </span>
 </template>
