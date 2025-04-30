@@ -1,22 +1,22 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
-    <div class="h-14 w-18 absolute top-0 left-2 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('/menu')" class="h-10 w-10" variant="secondary">
-        <Element src="/element/home.png" customClass="h-6" />
+    <div class="h-14 lg:h-20 w-18 lg:w-24 absolute top-0 left-2 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('/menu')" class="h-10 lg:h-16 w-10 lg:w-16" variant="secondary">
+        <Element src="/element/home.png" customClass="h-6 w-6 lg:h-8 lg:w-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage > 0 && currentPage < 15" class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('back')" class="h-12 w-12" variant="secondary">
-        <Element src="/element/arrow-left.png" customClass="h-6" />
+    <div v-show="currentPage > 0 && currentPage < 15" class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 lg:left-5 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('back')" class="h-12 w-12 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/arrow-left.png" customClass="h-6 w-4 lg:h-10 lg:w-6" />
       </CircleButton>
     </div>
-    <div v-show="currentPage < 14" class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('next')" class="h-12 w-12 rotate-180" variant="secondary">
-        <Element src="/element/arrow-left.png" customClass="h-6" />
+    <div v-show="currentPage < 14" class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-5 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('next')" class="h-12 lg:h-16 w-12 lg:w-16 rotate-180" variant="secondary">
+        <Element src="/element/arrow-left.png" customClass="h-6 w-4 lg:h-10 lg:w-6" />
       </CircleButton>
     </div>
-    <div class="z-10 justify-center absolute top-5 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-2 text-center text-4xl w-[400px] md:w-[100%]">CARA PENGGUNAAN</LilitaText>
+    <div class="z-10 justify-center absolute top-5 lg:top-10 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-2 text-center text-4xl lg:text-6xl w-[400px] md:w-[100%]">CARA PENGGUNAAN</LilitaText>
     </div>
     <div class="relative flex justify-center items-end w-[80%] h-[80%] p-2 bg-blue-900 bg-opacity-90 rounded-3xl">
       <div class="flex justify-center items-center gap-2 w-[95%] h-[90%] z-10">
