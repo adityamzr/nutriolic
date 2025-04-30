@@ -5,7 +5,7 @@
         <Element src="/element/arrow-left.png" customClass="h-6" />
       </CircleButton>
     </div>
-    <div class="h-16 w-20 absolute top-0 right-0 flex justify-evenly items-center">
+    <div class="h-16 w-20 absolute top-0 right-0 flex justify-evenly items-center z-10">
       <CircleButton @click="handleClick('/onboarding')" class="h-12 w-12 rotate-180" variant="secondary">
         <Element src="/element/arrow-left.png" customClass="h-6" />
       </CircleButton>
@@ -18,7 +18,7 @@
       <Element src="/element/mangosteen.png" customClass="absolute bottom-[-30px] left-[-40px] w-28"/>
       <Element src="/element/watermelon.png" customClass="absolute top-[-20px] right-[-20px] w-20"/>
       <div class="flex flex-col items-center w-[90%] h-[100%]">
-        <Element src="/element/objectives-table.png" customClass="h-[100%]" />
+        <Element src="/element/tujuan-pembelajaran.png" customClass="h-[100%]" />
       </div>
     </div>
     <div class="absolute bottom-[-50px] right-[15px]">

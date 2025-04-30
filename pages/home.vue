@@ -8,7 +8,7 @@
         <Element src="/element/exit-door.png" customClass="h-8 w-8" />
       </CircleButton>
     </div>
-    <div class="h-16 w-52 absolute top-0 left-0 flex justify-evenly items-center">
+    <div class="h-16 w-52 absolute top-0 left-0 flex justify-evenly items-center z-10">
       <CircleButton class="h-12 w-12" @click="handleClick('/setting')">
         <Element src="/element/gear.png" customClass="h-8 w-8" />
       </CircleButton>

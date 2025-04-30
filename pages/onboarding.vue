@@ -11,7 +11,7 @@
     <div class="flex flex-col justify-center items-center w-[60%] lg:w-[90%] h-[90%] mr-2">
       <LilitaText class="text-stroke-3 text-4xl text-yellow-400 text-center w-[400px] md:w-[100%]">TAHUKAH KAMU?</LilitaText>
       <div class="h-[70%] w-[100%] bg-blue-900 bg-opacity-90">
-        <Element src="/element/indonesia.png" customClass="h-[100%] w-[100%]" />
+        <Element src="/element/facts.png" customClass="h-[100%] w-[100%]" />
       </div>
       <span class="text-xs text-white font-semibold ob1">Hai anak-anak hebat! Sebelum mulai, bacalah narasi di atas. Masalah itu muncul karena kurangnya asupan nutrisi dalam tubuh. Yuk, kita pelajari bersama cara mencegah penyakit lewat nutrisi yang baik!</span>
       <span class="text-xs text-white font-semibold ob2 hidden">Berdasarkan angka yang ditampilkan dalam infografis?mengapa anak-anak usia 5-12 tahun rentan mengalami obesitas?</span>

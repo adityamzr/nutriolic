@@ -13,7 +13,7 @@
         <ChefRight/>
       </div>
     </div>
-    <button @click="handleClick" class="absolute bottom-20 w-36 py-2 px-4 rounded-full bg-red-200">
+    <button @click="handleClick('/login')" class="absolute bottom-20 w-36 py-2 px-4 rounded-full bg-red-200">
       <LilitaText class="text-stroke-2 text-4xl">Mulai</LilitaText>
     </button>
   </div>
@@ -24,17 +24,19 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-const handleButtonClick = (type) => {
+// const handleButtonClick = (type) => {
+//   const element = document.documentElement;
+
+//   if (type === "full") {
+//     (element.requestFullscreen || element.mozRequestFullScreen || elem.webkitRequestFullscreen || elem.msRequestFullscreen)?.call(element);
+//   } else {
+//     if(!!document.fullscreenElement) (document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen)?.call(document);
+//   }
+// }
+
+const handleClick = (path) => {
   const element = document.documentElement;
-
-  if (type === "full") {
-    (element.requestFullscreen || element.mozRequestFullScreen || elem.webkitRequestFullscreen || elem.msRequestFullscreen)?.call(element);
-  } else {
-    if(!!document.fullscreenElement) (document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen)?.call(document);
-  }
-}
-
-const handleClick = () => {
-  router.push("/login");
+  (element.requestFullscreen || element.mozRequestFullScreen || elem.webkitRequestFullscreen || elem.msRequestFullscreen)?.call(element);
+  router.push(path);
 };
 </script>
