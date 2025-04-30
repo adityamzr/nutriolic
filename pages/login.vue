@@ -9,11 +9,11 @@
       <ServerErrorModal v-if="showServerErrorModal" @close="showServerErrorModal = false" />
 
       <!-- <LilitaText class="text-stroke-4 text-6xl">MULAI</LilitaText> -->
-      <div class="h-52 w-80 bg-rose-300 relative flex flex-col justify-center items-center">
-        <input v-model="username" class="mb-4 p-2 text-white focus:border-white focus:text-white bg-sky-600 rounded-xl h-10 placeholder:text-center placeholder:text-white" placeholder="Masukan Nama" type="text">
-        <input v-model="userClass" class="mb-4 p-2 text-white focus:border-white focus:text-white bg-sky-600 rounded-xl h-10 placeholder:text-center placeholder:text-white" placeholder="Masukan Kelas" type="text">
-        <button @click="handleLogin()" class="w-32 py-2 px-4 rounded-full bg-sky-600">
-          <LilitaText class="text-stroke-2 text-4xl">Login</LilitaText>
+      <div class="h-52 lg:h-72 w-80 lg:w-[450px] bg-rose-300 relative flex flex-col justify-center items-center">
+        <input v-model="username" class="mb-4 p-2 text-white text-xs lg:text-xl focus:border-white focus:text-white bg-sky-600 rounded-xl w-2/3 lg:w-3/4 h-10 lg:h-16 placeholder:text-center placeholder:text-white lg:placeholder:text-xl" placeholder="Masukan Nama" type="text">
+        <input v-model="userClass" class="mb-4 p-2 text-white text-xs lg:text-xl focus:border-white focus:text-white bg-sky-600 rounded-xl w-2/3 lg:w-3/4 h-10 lg:h-16 placeholder:text-center placeholder:text-white lg:placeholder:text-xl" placeholder="Masukan Kelas" type="text">
+        <button @click="handleLogin()" class="w-fit lg:w-fit py-2 px-4 rounded-full bg-sky-600">
+          <LilitaText class="text-stroke-2 lg:text-stroke-3 text-4xl lg:text-6xl">Masuk</LilitaText>
         </button>
         <Element src="/element/potato.png" customClass="absolute left-[-30px] top-[-40px] w-24"/>
         <Element src="/element/strawberry.png" customClass="absolute left-[-30px] bottom-[-30px] w-24"/>
@@ -21,8 +21,8 @@
         <Element src="/element/egg.png" customClass="absolute right-[-30px] bottom-[-30px] w-24"/>
       </div>
     </div>
-    <div class="absolute right-2 bottom-[-60px]">
-      <ChefRight/>
+    <div class="absolute right-2 lg:right-10 bottom-[-60px] lg:-bottom-20">
+      <ChefRight class="w-40 md:w-52 lg:w-96"/>
     </div>
   </div>
 </template>
