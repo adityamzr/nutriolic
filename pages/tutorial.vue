@@ -1,7 +1,7 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
     <div class="h-14 w-18 absolute top-0 left-2 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('/home')" class="h-10 w-10" variant="secondary">
+      <CircleButton @click="handleClick('/menu')" class="h-10 w-10" variant="secondary">
         <Element src="/element/home.png" customClass="h-6" />
       </CircleButton>
     </div>
