@@ -245,7 +245,7 @@ const questions = ref({
     answer: 'a',
     label: 'A. Mengedukasi orang tua tentang pentingnya memberikan makanan seperti ikan, telur, dan susu yang kaya protein serta omega-3 untuk meningkatkan kecerdasan dan daya ingat anak.',
     explaination: 'Infografis menyebutkan bahwa AA (Arachidonic Acid), DHA (Docosahexaenoic Acid), dan Kolin adalah nutrisi penting untuk perkembangan otak, terutama dalam 1.000 hari pertama kehidupan anak. Zat-zat ini banyak ditemukan dalam makanan seperti ikan laut, telur, dan produk hewani lainnya. Kekurangan nutrisi ini dapat menyebabkan gangguan kognitif, seperti kesulitan konsentrasi dan menurunnya daya ingat. Oleh karena itu, solusi terbaik adalah mengedukasi orang tua agar menyediakan makanan bergizi yang kaya akan lemak sehat dan kolin untuk mendukung fungsi otak anak secara optimal. 🧠🥚🐟',
-    img_path: '/element/n2.png',
+    img_path: '/element/nutrisi34.jpg',
     option: [
       { value: 'a', label: 'A. Mengedukasi orang tua tentang pentingnya memberikan makanan seperti ikan, telur, dan susu yang kaya protein serta omega-3 untuk meningkatkan kecerdasan dan daya ingat anak.' },
       { value: 'b', label: 'B. Mengurangi konsumsi makanan berlemak dan tinggi gula pada anak-anak, serta menggantinya dengan hanya mengkonsumsi sayur dan buah agar perkembangan otaknya lebih optimal.' },
@@ -262,7 +262,7 @@ const questions = ref({
     answer: 'a',
     label: 'A. Ikan dan kacang-kacangan',
     explaination: 'Berdasarkan infografis, ikan mengandung asam lemak omega-3 yang terbukti dapat meningkatkan kecerdasan dan pertumbuhan otak. Sementara itu, kacang-kacangan merupakan sumber protein dan zinc yang baik untuk daya konsentrasi, serta mengandung vitamin E dan antioksidan yang menjaga otak dari kerusakan akibat radikal bebas. Memilih dua makanan ini memberikan kombinasi nutrisi utama untuk fungsi otak, yaitu lemak sehat dan protein, yang sangat penting bagi anak yang sedang mengalami gangguan konsentrasi dan daya ingat. 🧠✨',
-    img_path: '/element/n2.png',
+    img_path: '/element/nutrisi34.jpg',
     option: [
       { value: 'a', label: 'A. Ikan dan kacang-kacangan, karena keduanya kaya akan omega-3 dan protein yang mendukung daya konsentrasi dan pertumbuhan otak.' },
       { value: 'b', label: 'B. Gandum murni dan buah-buahan, karena keduanya mengandung vitamin dan serat yang memperkuat sistem imun dan sistem pencernaan anak.' },
@@ -279,7 +279,7 @@ const questions = ref({
     answer: 'd',
     label: 'D. Jadi sulit untuk mengerjakan banyak tugas sekaligus dan mencerna informasi yang rumit dalam waktu yang sama.',
     explaination: 'Omega-3, khususnya DHA (docosahexaenoic acid), adalah komponen struktural utama dalam otak yang membantu pembentukan membran sel saraf dan mendukung transmisi sinyal antar neuron. Kekurangan omega-3 dapat menurunkan fungsi kognitif, daya ingat, dan konsentrasi. Zat besi memiliki peran penting dalam membawa oksigen ke otak melalui hemoglobin dalam darah. Ketika tubuh kekurangan zat besi, suplai oksigen ke otak terganggu, menyebabkan kelelahan mental, penurunan konsentrasi, dan kesulitan dalam berpikir jernih. Kombinasi kekurangan dua nutrisi penting ini menyebabkan otak tidak mampu bekerja secara efisien, khususnya dalam menghadapi tugas kompleks atau saat harus berpikir cepat. Oleh karena itu, kondisi ini paling mungkin membuat remaja kesulitan saat harus memproses informasi yang rumit dan melakukan beberapa tugas sekaligus di sekolah. 🧠📉📚',
-    img_path: '/element/n3.png',
+    img_path: '/element/nutrisi5.jpg',
     option: [
       { value: 'a', label: 'A. Otaknya jadi lebih pintar menyerap informasi penting saja, jadi yang tidak penting mudah dilupakan.' },
       { value: 'b', label: 'B. Kemampuan fokusnya naik turun tidak jelas, kadang bisa belajar dengan baik, kadang sulit sekali mengerti pelajaran.' },

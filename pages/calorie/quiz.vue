@@ -211,7 +211,7 @@ const questions = ref({
     answer: 'b',
     label: 'B. Berkurangnya potensi produktivitas dan kemampuan kognitif generasi mendatang.',
     explaination: 'Stunting atau pertumbuhan yang terhambat akibat kekurangan gizi kronis di masa awal kehidupan berdampak pada terganggunya perkembangan otak dan fisik anak. Anak stunting cenderung memiliki kemampuan kognitif yang lebih rendah dan produktivitas yang terbatas saat dewasa. Dalam jangka panjang, hal ini dapat menurunkan kualitas SDM suatu negara, menghambat pembangunan, serta meningkatkan beban ekonomi dan kesehatan.',
-    img_path: '/element/n1.png',
+    img_path: '/element/kalori1.jpg',
     option: [
       { value: 'a', label: 'A. Menurunnya angka harapan hidup secara signifikan.' },
       { value: 'b', label: 'B. Berkurangnya potensi produktivitas dan kemampuan kognitif generasi mendatang.' },
@@ -228,7 +228,7 @@ const questions = ref({
     answer: 'c',
     label: 'C. Damar termasuk aktivitas ringan karena jarang berolahraga.',
     explaination: 'Tingkat aktivitas ringan ditandai dengan minimnya kegiatan fisik, seperti duduk, belajar, dan menggunakan HP. Meski Damar mengonsumsi 2.800 kkal, itu tidak menjadikannya termasuk dalam aktivitas berat. Tanpa aktivitas fisik yang tinggi, kalori sebanyak itu bisa berlebihan. Aktivitas berat biasanya melibatkan latihan fisik intens seperti yang dilakukan Farel.',
-    img_path: '/element/n2.png',
+    img_path: '/element/kalori2.jpg',
     option: [
       { value: 'a', label: 'A. Damar termasuk sangat aktif karena konsumsi energinya tinggi.' },
       { value: 'b', label: 'B. Damar termasuk aktivitas sedang karena sering belajar.' },
@@ -245,7 +245,7 @@ const questions = ref({
     answer: 'a',
     label: 'A. Jika seseorang meningkatkan aktivitasnya dari ringan menjadi berat, maka kebutuhan kalorinya bertambah sebanyak 700 kkal.',
     explaination: 'Grafik menunjukkan bahwa kebutuhan kalori meningkat seiring aktivitas. Dari aktivitas ringan ke berat, perbedaan bisa mencapai 700 kkal atau lebih. Pernyataan lain salah karena bertentangan dengan prinsip energi dan data grafik: orang tidak aktif memerlukan lebih sedikit energi; konsumsi berlebih dari kalori tanpa aktivitas menyebabkan peningkatan berat badan.',
-    img_path: '/element/n3.png',
+    img_path: '/element/kalori3.jpg',
     option: [
       { value: 'a', label: 'A. Jika seseorang meningkatkan aktivitasnya dari ringan menjadi berat, maka kebutuhan kalorinya bertambah sebanyak 700 kkal.' },
       { value: 'b', label: 'B. Orang yang tidak aktif dan orang yang sangat aktif membutuhkan jumlah kalori yang sama.' },
@@ -262,7 +262,7 @@ const questions = ref({
     answer: 'c',
     label: 'C. Jumlah energi dari lemaknya berpotensi tidak seimbang dan bisa menyebabkan kelebihan berat badan.',
     explaination: 'Lemak sebaiknya hanya menyumbang sekitar 20-35% dari total kalori harian. 900 kkal dari 1.800 kkal berarti 50%, yang melebihi batas atas rekomendasi. Konsumsi lemak berlebih secara terus-menerus bisa menimbulkan risiko obesitas dan gangguan metabolik, terutama jika tidak disertai aktivitas fisik yang cukup.',
-    img_path: '/element/n4.png',
+    img_path: '/element/kalori4.jpg',
     option: [
       { value: 'a', label: 'A. Asupan lemaknya masih dalam batas wajar karena belum mencapai separuh dari total kebutuhan energi harian.' },
       { value: 'b', label: 'B. Komposisi energi dari lemak sudah pas.' },
@@ -279,7 +279,7 @@ const questions = ref({
     answer: 'b',
     label: 'B. Jumlah kalori dari karbohidrat terlalu rendah dan dapat mengganggu fungsi utama karbohidrat sebagai penghasil energi utama.',
     explaination: 'Karbohidrat merupakan sumber energi utama, biasanya menyumbang 45–65% dari kebutuhan kalori harian. Jika dari 2.500 kkal hanya 1.600 kkal yang terpenuhi dari karbohidrat (dan tanpa diketahui asupan nutrisi lainnya), maka masih ada kekurangan energi total. Ini dapat menyebabkan kelelahan, penurunan performa belajar, dan penurunan massa otot jika berlangsung lama.',
-    img_path: '/element/n5.png',
+    img_path: '/element/kalori5.jpg',
     option: [
       { value: 'a', label: 'A. Asupan karbohidratnya sudah ideal.' },
       { value: 'b', label: 'B. Jumlah kalori dari karbohidrat terlalu rendah dan dapat mengganggu fungsi utama karbohidrat sebagai penghasil energi utama.' },
