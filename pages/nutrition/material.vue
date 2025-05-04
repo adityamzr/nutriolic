@@ -10,7 +10,7 @@
         <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage < 8" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
+    <div v-show="currentPage < 10" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
       <CircleButton @click="handleClick('next')" class="h-12 w-12 lg:h-16 lg:w-16 rotate-180" variant="secondary">
         <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
@@ -90,6 +90,34 @@
          <div id="page-4" v-show="currentPage === 4" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-xl font-bold">Merancang Experimen</span>
           <p class="text-white text-xs lg:text-lg mb-1 lg:mb-2">
+            Misalkan Anda sedang merancang sebuah eksperimen untuk menguji hipotesis Anda tentang hubungan antara Konsumsi nutrisi cukup dan Fungsi Kognitif Otak. Amatilah tabel Data yang merupakan simulasi hasil experiment yang kalian design, lalu lengkapi setiap bagian dari desain eksperimen di halaman selanjutnya!
+          </p>
+          <table class="table-auto bg-white border border-gray-400 w-full mt-1">
+            <thead>
+              <tr class="bg-yellow-400">
+                <th class="border text-xs lg:text-lg p-2">No</th>
+                <th class="border text-xs lg:text-lg p-2">Nama</th>
+                <th class="border text-xs lg:text-lg p-2">Usia</th>
+                <th class="border text-xs lg:text-lg p-2">Jenis Kelamin</th>
+                <th class="border text-xs lg:text-lg p-2">Makanan yang Dikonsumsi Rutin Setiap Hari</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(n, index) in experiments" :key="n">
+                <td class="border text-xs lg:text-lg text-center">{{ index+1 }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ n.name }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ n.age }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ n.gender }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ n.meals }}</td>
+              </tr>
+            </tbody>
+          </table>
+         </div>
+         <!-- End of PAGE 4-->
+         <!-- Start of PAGE 5 -->
+         <div id="page-5" v-show="currentPage === 5" class="w-full pt-2 pb-4 h-full overflow-auto">
+          <span class="text-white text-xs lg:text-xl font-bold">Merancang Experimen</span>
+          <p class="text-white text-xs lg:text-lg mb-1 lg:mb-2">
             Misalkan Anda sedang merancang sebuah eksperimen untuk menguji hipotesis Anda tentang hubungan antara Obesitas dan Kalori yang Dibutuhkan. Lengkapi setiap bagian dari desain eksperimen di bawah ini.
           </p>
           <span class="text-white text-xs lg:text-lg font-semibold">P4: Variabel Independen</span>
@@ -103,9 +131,9 @@
             <QuillEditor v-model:modelValue="answers.p5" class="my-1 lg:my-2"/>
           </client-only>
          </div>
-         <!-- End of PAGE 4-->
-         <!-- Start of PAGE 5 -->
-         <div id="page-5" v-show="currentPage === 5" class="w-full pt-2 pb-4 h-full overflow-auto">
+         <!-- End of PAGE 5-->
+         <!-- Start of PAGE 6 -->
+         <div id="page-6" v-show="currentPage === 6" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-lg font-semibold">P6: Variabel Kontrol</span>
           <p class="text-white text-xs lg:text-lg mb-1">Variabel apa yang akan Anda jaga agar tetap konstan untuk memastikan tes yang adil?</p>
           <client-only>
@@ -117,18 +145,46 @@
             <QuillEditor v-model:modelValue="answers.p7" class="my-1 lg:my-2"/>
           </client-only>
          </div>
-         <!-- End of PAGE 5 -->
-         <!-- Start of PAGE 6 -->
-         <div id="page-6" v-show="currentPage === 6" class="w-full pt-2 pb-4 h-full overflow-auto">
+         <!-- End of PAGE 6 -->
+         <!-- Start of PAGE 7 -->
+         <div id="page-7" v-show="currentPage === 7" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-lg font-semibold">P8: Langkah-langkah Eksperimen</span>
           <p class="text-white text-xs lg:text-lg mb-1">Uraikan langkah-langkah yang akan Anda lakukan untuk menguji hipotesis Anda.</p>
           <client-only>
             <QuillEditor v-model:modelValue="answers.p8" class="my-1 lg:my-2"/>
           </client-only>
          </div>
-         <!-- End of PAGE 6 -->
-         <!-- Start of PAGE 7 -->
-         <div id="page-7" v-show="currentPage === 7" class="w-full pt-2 pb-4 h-full overflow-auto">
+         <!-- End of PAGE 7 -->
+         <!-- Start of PAGE 8 -->
+         <div id="page-8" v-show="currentPage === 8" class="w-full pt-2 pb-4 h-full overflow-auto">
+          <span class="text-white text-xs lg:text-lg font-semibold">P9: Data Hasil Eksperimen</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Amati dan pahami tabel kosong yang tersedia di bawah ini. Cocokkan dan isi tabel tersebut dengan data yang sesuai berdasarkan gambar yang disediakan. <span @click="openImage('/element/experimen-nut.jpg')" class="text-yellow-400 cursor-pointer">(Lihat foto disini)</span>.</p>
+          <table class="table-auto bg-white border border-gray-400 w-full mt-1">
+            <thead>
+              <tr class="bg-yellow-400">
+                <th class="border text-xs lg:text-lg p-2">No</th>
+                <th class="border text-xs lg:text-lg p-2">Nama</th>
+                <th class="border text-xs lg:text-lg p-2">Usia</th>
+                <th class="border text-xs lg:text-lg p-2">Makanan yang Dikonsumsi Setiap Hari</th>
+                <th class="border text-xs lg:text-lg p-2">Kualitas Nutrisi</th>
+                <th class="border text-xs lg:text-lg p-2">Dampak terhadap Tubuh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(n, i) in 3" :key="i">
+                <td class="border text-xs lg:text-lg text-center">{{ i+1 }}</td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.p9['data' + (i + 1)].name"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.p9['data'+ (i + 1)].age"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.p9['data'+ (i + 1)].meals"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.p9['data'+ (i + 1)].nutrition"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.p9['data'+ (i + 1)].impact"></td>
+              </tr>
+            </tbody>
+          </table>
+         </div>
+         <!-- End of PAGE 8 -->
+         <!-- Start of PAGE 9 -->
+         <div id="page-9" v-show="currentPage === 9" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-xl font-semibold">Jawablah pertanyaan-pertanyaan berikut dengan tepat:</span>
           <p class="text-white text-xs lg:text-lg my-1">Mengapa makanan penting untuk tubuh?</p>
           <client-only>
@@ -143,9 +199,9 @@
             <QuillEditor v-model:modelValue="answers.a3" class="my-1 lg:my-2"/>
           </client-only>
          </div>
-         <!-- End of PAGE 7 -->
-          <!-- Start of PAGE 8 -->
-         <div id="page-8" v-show="currentPage === 8" class="w-full pt-2 pb-4 h-full overflow-auto">
+         <!-- End of PAGE 9 -->
+          <!-- Start of PAGE 10 -->
+         <div id="page-10" v-show="currentPage === 10" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-xl font-bold">Menarik Kesimpulan</span>
           <p class="text-white text-xs lg:text-lg mb-1">Berdasarkan data yang diberikan dan percobaan yang telah dirancang, buatlah kesimpulan tentang hubungan antara makanan dan fungsi otak.</p>
           <client-only>
@@ -157,7 +213,7 @@
             </button>
           </div>
          </div>
-         <!-- End of PAGE 8 -->
+         <!-- End of PAGE 10 -->
       </div>
     </div>
   </div>
@@ -220,6 +276,29 @@ const answers = ref({
   p6: '',
   p7: '',
   p8: '',
+  p9: {
+    data1: {
+      name: "",
+      age: "",
+      meals: "",
+      nutrition: "",
+      impact: "",
+    },
+    data2: {
+      name: "",
+      age: "",
+      meals: "",
+      nutrition: "",
+      impact: "",
+    },
+    data3: {
+      name: "",
+      age: "",
+      meals: "",
+      nutrition: "",
+      impact: "",
+    },
+  },
   a1: '',
   a2: '',
   a3: '',
@@ -230,12 +309,35 @@ const pageMap = [
   { id: 'page-1', fields: ['q1', 'q2'] },
   { id: 'page-2', fields: ['q3'] },
   { id: 'page-3', fields: ['carbs', 'proteins', 'fats', 'vitamins', 'minerals'] },
-  { id: 'page-4', fields: ['p4', 'p5'] },
-  { id: 'page-5', fields: ['p6', 'p7'] },
-  { id: 'page-6', fields: ['p8'] },
-  { id: 'page-7', fields: ['a1', 'a2', 'a3'] },
-  { id: 'page-8', fields: ['conclusion'] },
+  { id: 'page-4', fields: [''] },
+  { id: 'page-5', fields: ['p4', 'p5'] },
+  { id: 'page-6', fields: ['p6', 'p7'] },
+  { id: 'page-7', fields: ['p8'] },
+  { id: 'page-8', fields: ['p9'] },
+  { id: 'page-9', fields: ['a1', 'a2', 'a3'] },
+  { id: 'page-10', fields: ['conclusion'] },
 ];
+
+const experiments = ref([
+  {
+    name: "Ramdani",
+    age: "13",
+    gender: "Laki-laki",
+    meals: "Ikan salmon, nasi merah, brokoli, wortel, telur rebus, air putih, buah beri.",
+  },
+  {
+    name: "Kirana",
+    age: "12",
+    gender: "Perempuan",
+    meals: "Nasi putih, mie instan, gorengan, soda manis, keripik.",
+  },
+  {
+    name: "Rizky",
+    age: "14",
+    gender: "Laki-laki",
+    meals: "Telur, ayam goreng, nasi putih, susu, pisang, sayur sawi.",
+  }
+]);
 
 const handleClick = (path) => {
   const current = pageMap[currentPage.value - 1]; // halaman sekarang
@@ -286,7 +388,7 @@ const handleSubmit = async () => {
 
   const payload = JSON.stringify(answers.value)
   const token = localStorage.getItem('token')
-
+  
   try {
     const res = await fetch(`${apiUrl}/nutrisi-responses`, {
       method: 'PUT',

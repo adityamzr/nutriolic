@@ -131,7 +131,7 @@
           <div class="overflow-auto w-full">
             <table class="table-auto bg-white border border-gray-400 w-full mt-1">
               <thead>
-                <tr>
+                <tr class="bg-yellow-400">
                   <th class="border text-xs lg:text-lg p-2">No</th>
                   <th class="border text-xs lg:text-lg p-2">Nama</th>
                   <th class="border text-xs lg:text-lg p-2">Jenis Kelamin</th>
@@ -205,7 +205,7 @@
           <p class="text-white text-xs lg:text-lg mb-1">Amati dan pahami tabel kosong yang tersedia di bawah ini. Cocokkan dan isi tabel tersebut dengan data yang sesuai berdasarkan gambar yang disediakan. <span @click="openImage('/element/experimen-kal.jpg')" class="text-yellow-400 cursor-pointer">(Lihat foto disini)</span>.</p>
           <table class="table-auto bg-white border border-gray-400 w-full mt-1">
             <thead>
-              <tr>
+              <tr class="bg-yellow-400">
                 <th class="border text-xs lg:text-lg p-2">No</th>
                 <th class="border text-xs lg:text-lg p-2">Nama</th>
                 <th class="border text-xs lg:text-lg p-2">Jenis Kelamin</th>
