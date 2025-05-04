@@ -10,7 +10,7 @@
         <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage < 6" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
+    <div v-show="currentPage < 7" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
       <CircleButton @click="handleClick('next')" class="h-12 w-12 lg:h-16 lg:w-16 rotate-180" variant="secondary">
         <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
@@ -103,8 +103,32 @@
           </client-only>
          </div>
          <!-- End of PAGE 5 -->
-          <!-- Start of PAGE 6 -->
+         <!-- Start of PAGE 6 -->
          <div id="page-6" v-show="currentPage === 6" class="w-full pt-2 pb-4 h-full overflow-auto">
+          <span class="text-white text-xs lg:text-lg font-semibold">P9: Data Hasil Eksperimen</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Uraikan langkah-langkah yang akan Anda lakukan untuk menguji hipotesis Anda.</p>
+          <table class="table-auto bg-white border border-gray-400 w-full mt-1">
+            <thead>
+              <tr class="bg-yellow-400">
+                <th class="border text-xs lg:text-lg p-2">Karakteristik Nutrisi</th>
+                <th class="border text-xs lg:text-lg p-2">Produk A</th>
+                <th class="border text-xs lg:text-lg p-2">Produk B</th>
+                <th class="border text-xs lg:text-lg p-2">Catatan Perbandingan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(n, i) in charItems" :key="i">
+                <td class="border text-xs lg:text-lg text-center">{{ charItems[i] }}</td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.p9[Object.keys(answers.p9)[i]].productA"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.p9[Object.keys(answers.p9)[i]].productB"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.p9[Object.keys(answers.p9)[i]].comparison"></td>
+              </tr>
+            </tbody>
+          </table>
+         </div>
+         <!-- End of PAGE 6 -->
+          <!-- Start of PAGE 7 -->
+         <div id="page-7" v-show="currentPage === 7" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-xl font-bold">Menarik Kesimpulan</span>
           <p class="text-white text-xs lg:text-lg mb-1">Berdasarkan data yang diberikan dan percobaan yang telah dirancang, buatlah kesimpulan tentang hubungan antara makanan dan fungsi otak.</p>
           <client-only>
@@ -116,7 +140,7 @@
             </button>
           </div>
          </div>
-         <!-- End of PAGE 6 -->
+         <!-- End of PAGE 7 -->
       </div>
     </div>
   </div>
@@ -160,6 +184,20 @@ const showImageModal = ref(false);
 const modalSrc = ref('');
 const currentPage = ref(1)
 
+const charItems = [
+  'Kalori per Porsi',
+  'Lemak Total (g)',
+  'Gula Total (g)',
+  'Serat Pangan (g)',
+  'Protein (g)',
+  'Natrium (mg)',
+  'Vitamin D (% AKG)',
+  'Kalsium (% AKG)',
+  'Zat Besi (% AKG)',
+  'Kesimpulan Sementara',
+  'Potensi Dampak Kesehatan',
+];
+
 const answers = ref({
   q1: '',
   q2: '',
@@ -169,6 +207,63 @@ const answers = ref({
   p6: '',
   p7: '',
   p8: '',
+  p9: {
+    calories: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    fat: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    sugar: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    fiber: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    protein: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    sodium: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    vitaminD: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    calcium: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    iron: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    conclusion: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    },
+    impact: {
+      productA: "",
+      productB: "",
+      comparison: ""
+    }
+  },
   conclusion: '',
 });
 
@@ -178,9 +273,9 @@ const pageMap = [
   { id: 'page-3', fields: ['p4', 'p5'] },
   { id: 'page-4', fields: ['p6', 'p7'] },
   { id: 'page-5', fields: ['p8'] },
-  { id: 'page-6', fields: ['conclusion'] },
+  { id: 'page-6', fields: ['p9'] },
+  { id: 'page-7', fields: ['conclusion'] },
 ];
-
 const handleClick = (path) => {
   const current = pageMap[currentPage.value - 1];
   const isEmpty = current.fields.some((field) => {

@@ -10,7 +10,7 @@
         <Element src="/element/arrow-left.png" customClass="h-6 lg:-h-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage < 7" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
+    <div v-show="currentPage < 8" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
       <CircleButton @click="handleClick('next')" class="h-12 w-12 lg:h-16 lg:w-16 rotate-180" variant="secondary">
         <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
@@ -104,9 +104,45 @@
             <QuillEditor v-model:modelValue="answers.p8" class="my-1 lg:my-2"/>
           </client-only>
          </div>
-         <!-- End of PAGE 5 -->
-          <!-- Start of PAGE 6 -->
+         <!-- End of PAGE 6 -->
+         <!-- Start of PAGE 6 -->
          <div id="page-6" v-show="currentPage === 6" class="w-full pt-2 pb-4 h-full overflow-auto">
+          <span class="text-white text-xs lg:text-lg font-semibold">P9: Data Hasil Eksperimen</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Dibawah ini merupakan tabel Data simulasi Penelitian yang kalian lakukan, ayo isi tabel kosong yang ada di bawah ini, untuk melengkapi tabel di bawah kalian bisa melihat gambar terkait nilai kalori makanan pada foto ini <span @click="openImage('/element/experimen-myplate.jpg')" class="text-yellow-400 cursor-pointer">(Lihat tabel)</span>.</p>
+          <table class="table-auto bg-white border border-gray-400 w-full mt-1">
+            <thead>
+              <tr class="bg-yellow-400">
+                <th class="border text-xs lg:text-lg p-2">No</th>
+                <th class="border text-xs lg:text-lg p-2">Usia</th>
+                <th class="border text-xs lg:text-lg p-2">Jenis Kelamin</th>
+                <th class="border text-xs lg:text-lg p-2">Aktivitas Fisik</th>
+                <th class="border text-xs lg:text-lg p-2">Kebutuhan Kalori (kkal)</th>
+                <th class="border text-xs lg:text-lg p-2">Menu Makan Siang (disesuaikan)</th>
+                <th class="border text-xs lg:text-lg p-2">Proporsi MyPlate</th>
+                <th class="border text-xs lg:text-lg p-2">Total Kalori</th>
+                <th class="border text-xs lg:text-lg p-2">Analisis Proporsi</th>
+                <th class="border text-xs lg:text-lg p-2">Dampak</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(n, i) in 3" :key="i">
+                <td class="border text-xs lg:text-lg text-center">{{ i+1 }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ answers.p9['data' + (i+1)].age }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ answers.p9['data' + (i+1)].gender }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ answers.p9['data' + (i+1)].activities }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ answers.p9['data' + (i+1)].calorieNeeded }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ answers.p9['data' + (i+1)].lunchMenu }}</td>
+                <td class="border text-xs lg:text-lg text-center">{{ answers.p9['data' + (i+1)].proportion }}</td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.p9['data' + (i+1)].totalCalorie"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.p9['data' + (i+1)].analysis"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.p9['data' + (i+1)].impact"></td>
+              </tr>
+            </tbody>
+          </table>
+         </div>
+         <!-- End of PAGE 6 -->
+          <!-- Start of PAGE 7 -->
+         <div id="page-7" v-show="currentPage === 7" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-xl font-bold"> Jawablah pertanyaan-pertanyaan berikut dengan benar:</span>
           <p class="text-white text-xs lg:text-lg mb-1">Mengapa makanan kaya serat, seperti biji-bijian dan sayuran, penting bagi tubuh?</p>
           <client-only>
@@ -131,9 +167,9 @@
             <QuillEditor v-model:modelValue="answers.a4" class="my-1 lg:my-2"/>
           </client-only>
          </div>
-         <!-- End of PAGE 6 -->
-          <!-- Start of PAGE 7 -->
-         <div id="page-7" v-show="currentPage === 7" class="w-full pt-2 pb-4 h-full overflow-auto">
+         <!-- End of PAGE 7 -->
+          <!-- Start of PAGE 8 -->
+         <div id="page-8" v-show="currentPage === 8" class="w-full pt-2 pb-4 h-full overflow-auto">
           <span class="text-white text-xs lg:text-xl font-bold">Menarik Kesimpulan</span>
           <p class="text-white text-xs lg:text-lg mb-1">Berdasarkan data yang diberikan dan percobaan yang telah dirancang, buatlah kesimpulan tentang hubungan antara makanan dan fungsi otak.</p>
           <client-only>
@@ -145,7 +181,7 @@
             </button>
           </div>
          </div>
-         <!-- End of PAGE 7 -->
+         <!-- End of PAGE 8 -->
       </div>
     </div>
   </div>
@@ -198,6 +234,41 @@ const answers = ref({
   p6: '',
   p7: '',
   p8: '',
+  p9: {
+    data1: {
+      age: "16",
+      gender: "Laki-laki",
+      activities: "Sedang",
+      calorieNeeded: "2500",
+      lunchMenu: "Nasi putih 150g, Ayam goreng, Sayur bayam, Apel",
+      proportion: "Karbo >1/4, Protein >1/4, Sayur & Buah <1/2",
+      totalCalorie: "",
+      analysis: "",
+      impact: ""
+    },
+    data2: {
+      age: "15",
+      gender: "Perempuan",
+      activities: "Ringan",
+      calorieNeeded: "2000",
+      lunchMenu: "Nasi putih 100g, Ikan panggang, Tumis bayam + wortel, Pisang",
+      proportion: "Mendekati Tepat",
+      totalCalorie: "",
+      analysis: "",
+      impact: ""
+    },
+    data3: {
+      age: "16",
+      gender: "Perempuan",
+      activities: "Sedang",
+      calorieNeeded: "2200",
+      lunchMenu: "Roti gandum 2 lembar, Tahu goreng, Salad besar, Stroberi, Susu full cream",
+      proportion: "Tepat",
+      totalCalorie: "",
+      analysis: "",
+      impact: ""
+    }
+  },
   a1: '',
   a2: '',
   a3: '',
@@ -211,8 +282,9 @@ const pageMap = [
   { id: 'page-3', fields: ['p4', 'p5'] },
   { id: 'page-4', fields: ['p6', 'p7'] },
   { id: 'page-5', fields: ['p8'] },
-  { id: 'page-6', fields: ['a1', 'a2', 'a3', 'a4'] },
-  { id: 'page-7', fields: ['conclusion'] },
+  { id: 'page-6', fields: ['p9'] },
+  { id: 'page-7', fields: ['a1', 'a2', 'a3', 'a4'] },
+  { id: 'page-8', fields: ['conclusion'] },
 ];
 
 const handleClick = (path) => {
@@ -244,6 +316,11 @@ const handleClick = (path) => {
   if (currentPage.value < pageMap.length) {
     currentPage.value++;
   }
+};
+
+const openImage = (path) => {
+  modalSrc.value = path;
+  showImageModal.value = true;
 };
 
 const handleExit = (path) => {
