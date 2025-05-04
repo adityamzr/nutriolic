@@ -202,10 +202,10 @@ const handleClick = (path) => {
     return;
   }
 
-  // if (isEmpty) {
-  //   showEmptyFieldModal.value = true;
-  //   return;
-  // }
+  if (isEmpty) {
+    showEmptyFieldModal.value = true;
+    return;
+  }
 
   if (currentPage.value < pageMap.length) {
     currentPage.value++;

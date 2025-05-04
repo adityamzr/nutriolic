@@ -1,7 +1,7 @@
 <template>
   <div class="fixed inset-0 z-50 flex items-center justify-center">
     <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-    <div class="relative rounded-2xl p-6 max-w-sm w-full z-10 text-center">
+    <div class="relative rounded-2xl p-6 max-w-screen-sm lg:max-w-screen-lg w-full z-10 text-center">
       <Element :src="src" customClass="" />
       <button
         @click="$emit('close')"
