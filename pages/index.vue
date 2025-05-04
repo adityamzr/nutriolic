@@ -23,8 +23,8 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const handleClick = (path) => {
-  const element = document.documentElement;
-  (element.requestFullscreen || element.mozRequestFullScreen || elem.webkitRequestFullscreen || elem.msRequestFullscreen)?.call(element);
+  // const element = document.documentElement;
+  // (element.requestFullscreen || element.mozRequestFullScreen || elem.webkitRequestFullscreen || elem.msRequestFullscreen)?.call(element);
   router.push(path);
 };
 </script>

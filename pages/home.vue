@@ -1,47 +1,44 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
-    <div class="h-16 w-32 absolute top-0 right-5 flex justify-end items-center">
-      <!-- <Button @click="handleClick('/')" class="w-24">
-        <LilitaText class="text-stroke-2 text-3xl">Menu</LilitaText>
-      </Button> -->
-      <CircleButton class="h-12 w-12" @click="handleClick('logout')">
-        <Element src="/element/exit-door.png" customClass="h-8 w-8" />
+    <div class="h-16 lg:h-24 w-32 absolute top-0 right-5 flex justify-end items-center">
+      <CircleButton class="h-12 w-12 lg:h-16 lg:w-16" @click="handleClick('logout')">
+        <Element src="/element/exit-door.png" customClass="h-8 w-8 lg:h-10 lg:w-10" />
       </CircleButton>
     </div>
-    <div class="h-16 w-52 absolute top-0 left-0 flex justify-evenly items-center z-10">
-      <CircleButton class="h-12 w-12" @click="handleClick('/setting')">
-        <Element src="/element/gear.png" customClass="h-8 w-8" />
+    <div class="h-16 lg:h-24 w-52 lg:w-72 absolute top-0 left-0 flex justify-evenly items-center z-10">
+      <CircleButton class="h-12 w-12 lg:h-16 lg:w-16" @click="handleClick('/setting')">
+        <Element src="/element/gear.png" customClass="h-8 w-8 lg:h-10 lg:w-10" />
       </CircleButton>
-      <CircleButton class="h-12 w-12" @click="handleClick('/reference')">
-        <Element src="/element/question-mark.png" customClass="h-8" />
+      <CircleButton class="h-12 w-12 lg:h-16 lg:w-16" @click="handleClick('/reference')">
+        <Element src="/element/question-mark.png" customClass="h-8 w-6 lg:h-10 lg:w-8" />
       </CircleButton>
-      <CircleButton class="h-12 w-12" @click="handleClick('/developer')">
-        <Element src="/element/chain.png" customClass="w-10" />
+      <CircleButton class="h-12 w-12 lg:h-16 lg:w-16" @click="handleClick('/developer')">
+        <Element src="/element/chain.png" customClass="w-10 lg:w-12" />
       </CircleButton>
     </div>
     <div class="flex justify-center items-end w-[80%] h-[60%] p-4">
-      <div class="flex justify-center absolute top-0 left-1/2 -translate-x-1/2">
-        <Element src="/element/nutriolic-title.svg" customClass="h-[140px] md:h-32 lg:h-48" />
-        <span class="absolute top-28 text-sm font-semibold">Pembelajaran Nutrisi Interaktif</span>
+      <div class="flex justify-center absolute top-0 md:top-10 left-1/2 -translate-x-1/2">
+        <Element src="/element/nutriolic-title.svg" customClass="h-[140px] md:h-32 lg:h-60" />
+        <span class="absolute md:top-28 lg:top-40 top-28 text-sm md:text-md lg:text-lg font-semibold">Pembelajaran Nutrisi Interaktif</span>
       </div>
       <div class="flex justify-evenly items-center w-[80%] h-[50%]">
         <div class="flex flex-col items-center">
-          <CircleButton @click="handleClick('/material-menu')" class="w-20 md:w-28 h-20 md:h-28">
-            <Element src="/element/chart.png" customClass="w-12 md:w-16"/>
+          <CircleButton @click="handleClick('/material-menu')" class="w-20 md:w-28 lg:w-36 h-20 md:h-28 lg:h-36">
+            <Element src="/element/chart.png" customClass="w-12 md:w-16 lg:w-20"/>
           </CircleButton>
-          <span class="text-lg text-white font-semibold">Materi</span>
+          <span class="text-lg lg:text-2xl text-white font-semibold">Materi</span>
         </div>
         <div class="flex flex-col items-center">
-          <CircleButton @click="handleClick('/game')" class="w-20 md:w-28 h-20 md:h-28">
-            <Element src="/element/paper-chart.png" customClass="w-12 md:w-16"/>
+          <CircleButton @click="handleClick('/game')" class="w-20 md:w-28 lg:w-36 h-20 md:h-28 lg:h-36">
+            <Element src="/element/paper-chart.png" customClass="w-12 md:w-16 lg:w-20"/>
           </CircleButton>
-          <span class="text-lg text-white font-semibold">Game</span>
+          <span class="text-lg lg:text-2xl text-white font-semibold">Game</span>
         </div>
         <div class="flex flex-col items-center">
-          <CircleButton @click="handleClick('/reflection')" class="w-20 md:w-28 h-20 md:h-28">
-            <Element src="/element/medal.png" customClass="w-12 md:w-16"/>
+          <CircleButton @click="handleClick('/reflection')" class="w-20 md:w-28 lg:w-36 h-20 md:h-28 lg:h-36">
+            <Element src="/element/medal.png" customClass="w-12 md:w-16 lg:w-20"/>
           </CircleButton>
-          <span class="text-lg text-white font-semibold">Refleksi</span>
+          <span class="text-lg lg:text-2xl text-white font-semibold">Refleksi</span>
         </div>
       </div>
     </div>
