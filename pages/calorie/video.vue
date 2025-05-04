@@ -20,14 +20,14 @@
         </div>
         <!-- <div class="flex flex-col items-center justify-between grow"> -->
         <div class="flex items-end justify-center grow">
-          <Element @click="handleClick('/calorie/material')" src="/element/start.png" customClass="w-20 lg:w-40 mb-8 lg:mb-16"/>
+          <Element @click="handleClick('/calorie/material')" src="/element/start.png" customClass="cursor-pointer w-20 lg:w-40 mb-8 lg:mb-16"/>
         </div>
       </div>
     </div>
     <div class="absolute w-24 md:w-20 lg:w-80 right-[170px] md:right-56 top-20 lg:top-32">
       <div class="relative items-center w-44 md:w-48 lg:w-80">
         <Element src="/element/cloud2.png" customClass="w-full"/>
-        <div class="absolute top-0 lg:top-8 left-1/2 -translate-x-1/2 h-[120px] w-36 md:h-32 md:w-40 lg:h-40 lg:w-52 inset-0 flex items-center justify-center px-2 text-xs lg:text-lg text-center font-semibold text-black">
+        <div class="absolute top-0 lg:top-10 left-1/2 -translate-x-1/2 h-[120px] w-36 md:h-32 md:w-40 lg:h-40 lg:w-52 inset-0 flex items-center justify-center px-2 text-xs lg:text-lg text-center font-semibold text-black">
           Halo para siswa yang pintar, tonton video tentang 'Obesitas dalam Bahasa Indonesia' dengan saksama!
         </div>
       </div>

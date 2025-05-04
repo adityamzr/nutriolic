@@ -20,7 +20,7 @@
         </div>
         <!-- <div class="flex flex-col items-center justify-between grow"> -->
         <div class="flex items-end justify-center grow">
-          <Element @click="handleClick('/nutrition/material')" src="/element/start.png" customClass="w-20 lg:w-40 mb-8 lg:mb-16"/>
+          <Element @click="handleClick('/nutrition/material')" src="/element/start.png" customClass="cursor-pointer w-20 lg:w-40 mb-8 lg:mb-16"/>
         </div>
       </div>
     </div>

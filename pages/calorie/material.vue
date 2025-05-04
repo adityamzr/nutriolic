@@ -1,22 +1,22 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
-    <div class="h-14 w-18 absolute top-0 left-2 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('exit')" class="h-10 w-10" variant="secondary">
-        <Element src="/element/home.png" customClass="h-6" />
+    <div class="h-14 lg:h-24 w-18 lg:w-24 absolute top-0 left-2 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('exit')" class="h-10 w-10 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/home.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('back')" class="h-12 w-12" variant="secondary">
-        <Element src="/element/arrow-left.png" customClass="h-6" />
+    <div class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 lg:left-4 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('back')" class="h-12 w-12 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage < 8" class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('next')" class="h-12 w-12 rotate-180" variant="secondary">
-        <Element src="/element/arrow-left.png" customClass="h-6" />
+    <div v-show="currentPage < 8" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('next')" class="h-12 w-12 lg:h-16 lg:w-16 rotate-180" variant="secondary">
+        <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div class="z-10 flex justify-center absolute top-5 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-4 text-6xl">KALORI</LilitaText>
+    <div class="z-10 flex justify-center absolute top-5 lg:top-10 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-4 text-6xl lg:text-8xl">KALORI</LilitaText>
     </div>
     <div class="relative flex justify-center items-end w-[80%] h-[80%] p-2 bg-blue-900 bg-opacity-90">
       <Element src="/element/orange.png" customClass="absolute top-[-30px] left-[-20px] w-16"/>
@@ -26,153 +26,153 @@
       <div class="flex justify-center items-center gap-2 w-[95%] h-[90%] z-10">
          <!-- Start of PAGE 1 -->
          <div id="page-1" v-show="currentPage === 1" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Merumuskan Masalah</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-xl font-bold">Merumuskan Masalah</span>
+          <p class="text-white text-xs lg:text-lg">
             Perhatikan pernyataan berikut ini:“Obesitas adalah suatu kondisi di mana tubuh memiliki kelebihan lemak yang dapat meningkatkan risiko berbagai penyakit kronis, seperti diabetes, penyakit jantung, dan gangguan pernapasan. Data menunjukkan bahwa angka obesitas pada anak di Indonesia meningkat 10 kali lipat dalam 10 tahun terakhir.”
           </p>
-          <span class="text-white text-xs font-semibold">Pertanyaan:</span>
-          <p class="text-white text-xs mb-1">Mengapa obesitas dapat menyebabkan berbagai komplikasi kesehatan? Tulislah pertanyaan penelitian yang dapat dikembangkan dari pernyataan di atas!</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">Pertanyaan:</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Mengapa obesitas dapat menyebabkan berbagai komplikasi kesehatan? Tulislah pertanyaan penelitian yang dapat dikembangkan dari pernyataan di atas!</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q1"/>
+            <QuillEditor v-model:modelValue="answers.q1" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-bold">Merumuskan Hipotesis</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-lg font-bold">Merumuskan Hipotesis</span>
+          <p class="text-white text-xs lg:text-lg">
             Berdasarkan pemahaman Anda mengenai obesitas dan dampaknya terhadap kesehatan, buatlah hipotesis bagaimana pola makan dan gaya hidup dapat mempengaruhi risiko obesitas.
           </p>
-          <span class="text-white text-xs font-semibold mb-1">Hipotesis:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold mb-1">Hipotesis:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q2"/>
+            <QuillEditor v-model:modelValue="answers.q2" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 1 -->
          <!-- Start of PAGE 2 -->
          <div id="page-2" v-show="currentPage === 2" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Mengumpulkan Data</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-xl font-bold">Mengumpulkan Data</span>
+          <p class="text-white text-xs lg:text-lg">
             A. Berikut ini adalah data kebutuhan kalori berdasarkan usia dan jenis kelamin <span @click="openImage('/element/cal-activities.png')" class="text-yellow-400 cursor-pointer">(Lihat tabel)</span>. Carilah referensi untuk mengisi tabel aktivitas ringan, sedang, dan berat di bawah ini.
           </p>
           <table class="table-auto bg-white border border-gray-400 w-full mt-1">
             <thead>
               <tr>
-                <th class="border text-xs">Ringan</th>
-                <th class="border text-xs">Sedang</th>
-                <th class="border text-xs">Berat</th>
+                <th class="border text-xs lg:text-lg">Ringan</th>
+                <th class="border text-xs lg:text-lg">Sedang</th>
+                <th class="border text-xs lg:text-lg">Berat</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="n in 3" :key="n">
-                <td class="border text-xs text-center"><input type="text" class="text-center" v-model="answers.activities.light['r' + n]"></td>
-                <td class="border text-xs text-center"><input type="text" class="text-center" v-model="answers.activities.currently['r' + n]"></td>
-                <td class="border text-xs text-center"><input type="text" class="text-center" v-model="answers.activities.heavy['r' + n]"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.activities.light['r' + n]"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.activities.currently['r' + n]"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center" v-model="answers.activities.heavy['r' + n]"></td>
               </tr>
             </tbody>
           </table>
-          <span class="text-white text-xs font-bold">Jawaban berdasarkan data</span>
-          <p class="text-white text-xs mb-1">
+          <span class="text-white text-xs lg:text-lg font-bold">Jawaban berdasarkan data</span>
+          <p class="text-white text-xs lg:text-lg mb-1">
             Berdasarkan data aktivitas di atas, seorang siswa termasuk dalam kelompok yang memiliki aktivitas ringan, sedang, atau berat, mengapa?
           </p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q3"/>
+            <QuillEditor v-model:modelValue="answers.q3" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 2 -->
          <!-- Start of PAGE 3 -->
          <div id="page-3" v-show="currentPage === 3" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <p class="text-white text-xs mb-1">
+          <p class="text-white text-xs lg:text-lg mb-1">
             Berdasarkan tabel kebutuhan energi <span @click="openImage('/element/cal-activities.png')" class="text-yellow-400 cursor-pointer">(Lihat tabel)</span>, mengapa kebutuhan kalori pria lebih tinggi daripada wanita pada semua rentang usia?
           </p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q4"/>
+            <QuillEditor v-model:modelValue="answers.q4" class="my-1 lg:my-2"/>
           </client-only>
-          <p class="text-white text-xs my-1">Bagaimana perbedaan kebutuhan kalori antara seseorang yang beraktivitas ringan, sedang, dan berat? Berikan contoh aktivitas yang termasuk ke dalam masing-masing kategori!</p>
+          <p class="text-white text-xs lg:text-lg my-1">Bagaimana perbedaan kebutuhan kalori antara seseorang yang beraktivitas ringan, sedang, dan berat? Berikan contoh aktivitas yang termasuk ke dalam masing-masing kategori!</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q5"/>
+            <QuillEditor v-model:modelValue="answers.q5" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 3 -->
          <!-- Start of PAGE 4 -->
          <div id="page-4" v-show="currentPage === 4" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <p class="text-white text-xs">B. Buatlah menu makanan dengan gizi seimbang (karbohidrat, protein, lemak, vitamin dan mineral) yang dapat memenuhi kebutuhan harian Anda sebagai pelajar.</p>
+          <p class="text-white text-xs lg:text-lg">B. Buatlah menu makanan dengan gizi seimbang (karbohidrat, protein, lemak, vitamin dan mineral) yang dapat memenuhi kebutuhan harian Anda sebagai pelajar.</p>
           <table class="table-auto bg-white border border-gray-400 w-full mt-1">
             <thead>
               <tr>
-                <th colspan="2" class="border text-xs">Menu</th>
-                <th class="border text-xs">Kuantitas</th>
-                <th class="border text-xs">Jumlah Energi</th>
+                <th colspan="2" class="border text-xs lg:text-lg">Menu</th>
+                <th class="border text-xs lg:text-lg">Kuantitas</th>
+                <th class="border text-xs lg:text-lg">Jumlah Energi</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="border text-xs text-center px-2 font-bold">Karbohidrat</td>
-                <td class="border text-xs text-center">Nasi Putih</td>
-                <td class="border text-xs text-center">1 mangkuk</td>
-                <td class="border text-xs text-center">630 kal</td>
+                <td class="border text-xs lg:text-lg text-center px-2 font-bold">Karbohidrat</td>
+                <td class="border text-xs lg:text-lg text-center">Nasi Putih</td>
+                <td class="border text-xs lg:text-lg text-center">1 mangkuk</td>
+                <td class="border text-xs lg:text-lg text-center">630 kal</td>
               </tr>
               <tr v-for="n in 3" :key="n">
-                <td class="border text-xs text-center font-bold">{{ items[n-1] }}</td>
-                <td class="border text-xs text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.food_items.protein[context[n-1]]"></td>
-                <td class="border text-xs text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.food_items.fat[context[n-1]]"></td>
-                <td class="border text-xs text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.food_items.vitamin[context[n-1]]"></td>
+                <td class="border text-xs lg:text-lg text-center font-bold">{{ items[n-1] }}</td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.food_items.protein[context[n-1]]"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.food_items.fat[context[n-1]]"></td>
+                <td class="border text-xs lg:text-lg text-center"><input type="text" class="text-center w-[120px] md:w-auto" v-model="answers.food_items.vitamin[context[n-1]]"></td>
               </tr>
             </tbody>
           </table>
-          <p class="text-white text-xs my-1">Berdasarkan menu makanan yang Anda buat, apakah menu tersebut sudah memenuhi kebutuhan energi dan gizi harian siswa? Jika tidak, apa yang perlu ditambahkan atau dikurangi?</p>
+          <p class="text-white text-xs lg:text-lg my-1">Berdasarkan menu makanan yang Anda buat, apakah menu tersebut sudah memenuhi kebutuhan energi dan gizi harian siswa? Jika tidak, apa yang perlu ditambahkan atau dikurangi?</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q6"/>
+            <QuillEditor v-model:modelValue="answers.q6" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 4-->
          <!-- Start of PAGE 5 -->
          <div id="page-5" v-show="currentPage === 5" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Merancang Experimen</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-xl font-bold">Merancang Experimen</span>
+          <p class="text-white text-xs lg:text-lg">
             Misalkan Anda sedang merancang sebuah eksperimen untuk menguji hipotesis Anda tentang hubungan antara Obesitas dan Kalori yang Dibutuhkan. Lengkapi setiap bagian dari desain eksperimen di bawah ini.
           </p>
-          <span class="text-white text-xs font-semibold">P4: Variabel Independen</span>
-          <p class="text-white text-xs mb-1">Aspek spesifik yang akan dianalisis dalam hubungan antara obesitas dan kebutuhan kalori adalah Jawaban.</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P4: Variabel Independen</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Aspek spesifik yang akan dianalisis dalam hubungan antara obesitas dan kebutuhan kalori adalah Jawaban.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p4"/>
+            <QuillEditor v-model:modelValue="answers.p4" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">P5: Variabel Tergantung</span>
-          <p class="text-white text-xs mb-1">Hasil apa yang akan Anda ukur dalam eksperimen Anda?</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P5: Variabel Tergantung</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Hasil apa yang akan Anda ukur dalam eksperimen Anda?</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p5"/>
+            <QuillEditor v-model:modelValue="answers.p5" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 5 -->
          <!-- Start of PAGE 6 -->
          <div id="page-6" v-show="currentPage === 6" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-semibold">P6: Variabel Kontrol</span>
-          <p class="text-white text-xs mb-1">Variabel apa yang akan Anda jaga agar tetap konstan untuk memastikan tes yang adil?</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P6: Variabel Kontrol</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Variabel apa yang akan Anda jaga agar tetap konstan untuk memastikan tes yang adil?</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p6"/>
+            <QuillEditor v-model:modelValue="answers.p6" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">P7: Bahan dan Peralatan</span>
-          <p class="text-white text-xs mb-1">Sebutkan bahan dan peralatan yang diperlukan untuk melakukan percobaan ini.</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P7: Bahan dan Peralatan</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Sebutkan bahan dan peralatan yang diperlukan untuk melakukan percobaan ini.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p7"/>
+            <QuillEditor v-model:modelValue="answers.p7" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 6 -->
          <!-- Start of PAGE 7 -->
          <div id="page-7" v-show="currentPage === 7" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-semibold">P8: Langkah-langkah Eksperimen</span>
-          <p class="text-white text-xs mb-1">Uraikan langkah-langkah yang akan Anda lakukan untuk menguji hipotesis Anda.</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P8: Langkah-langkah Eksperimen</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Uraikan langkah-langkah yang akan Anda lakukan untuk menguji hipotesis Anda.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p8"/>
+            <QuillEditor v-model:modelValue="answers.p8" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 7 -->
           <!-- Start of PAGE 8 -->
          <div id="page-8" v-show="currentPage === 8" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Menarik Kesimpulan</span>
-          <p class="text-white text-xs mb-1">Berdasarkan data yang diberikan dan percobaan yang telah dirancang, buatlah kesimpulan tentang hubungan antara makanan dan fungsi otak.</p>
+          <span class="text-white text-xs lg:text-xl font-bold">Menarik Kesimpulan</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Berdasarkan data yang diberikan dan percobaan yang telah dirancang, buatlah kesimpulan tentang hubungan antara makanan dan fungsi otak.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.conclusion"/>
+            <QuillEditor v-model:modelValue="answers.conclusion" class="my-1 lg:my-2"/>
           </client-only>
           <div class="flex w-full justify-center mt-6">
-            <button @click="handleSubmit()" class="w-28 py-2 px-2 rounded-full bg-yellow-200">
-              <LilitaText class="text-stroke-2 text-2xl">SIMPAN</LilitaText>
+            <button @click="handleSubmit()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+              <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">SIMPAN</LilitaText>
             </button>
           </div>
          </div>

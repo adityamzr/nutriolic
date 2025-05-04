@@ -1,22 +1,22 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
-    <div class="h-14 w-18 absolute top-0 left-2 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('exit')" class="h-10 w-10" variant="secondary">
-        <Element src="/element/home.png" customClass="h-6" />
+    <div class="h-14 lg:h-24 w-18 lg:w-24 absolute top-0 left-2 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('exit')" class="h-10 w-10 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/home.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('back')" class="h-12 w-12" variant="secondary">
-        <Element src="/element/arrow-left.png" customClass="h-6" />
+    <div class="h-16 lg:h-24 w-16 lg:w-24 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 lg:left-4 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('back')" class="h-12 w-12 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage < 8" class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('next')" class="h-12 w-12 rotate-180" variant="secondary">
-        <Element src="/element/arrow-left.png" customClass="h-6" />
+    <div v-show="currentPage < 8" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 right-0 lg:right-4 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('next')" class="h-12 w-12 lg:h-16 lg:w-16 rotate-180" variant="secondary">
+        <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div class="z-10 flex justify-center absolute top-5 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-4 text-6xl">NUTRISI</LilitaText>
+    <div class="z-10 flex justify-center absolute top-5 lg:top-10 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-4 text-6xl lg:text-8xl">NUTRISI</LilitaText>
     </div>
     <div class="relative flex justify-center items-end w-[80%] h-[80%] p-2 bg-blue-900 bg-opacity-90">
       <Element src="/element/orange.png" customClass="absolute top-[-30px] left-[-20px] w-16"/>
@@ -26,134 +26,134 @@
       <div class="flex justify-center items-center gap-2 w-[95%] h-[90%] z-10">
          <!-- Start of PAGE 1 -->
          <div id="page-1" v-show="currentPage === 1"  class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Merumuskan Masalah</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-xl font-bold">Merumuskan Masalah</span>
+          <p class="text-white text-xs lg:text-lg">
             Pertimbangkan pernyataan berikut ini:
             “Otak manusia hanya terdiri dari sekitar 2% dari berat badan, namun menggunakan hampir 20% dari total energi yang kita konsumsi. Nutrisi yang kita makan memiliki dampak langsung terhadap fungsi kognitif, suasana hati, dan kesehatan otak.”
             Buatlah Pertanyaan yang sesuai dengan masalah yang telah disajikan di atas
           </p>
-          <span class="text-white text-xs font-semibold mb-1">Pertanyaan:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Pertanyaan:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q1"/>
+            <QuillEditor v-model:modelValue="answers.q1" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-bold">Merumuskan Hipotesis</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-xl font-bold">Merumuskan Hipotesis</span>
+          <p class="text-white text-xs lg:text-lg">
             Berdasarkan pemahaman Anda tentang hubungan antara makanan dan otak, buatlah hipotesis tentang bagaimana pola makan tertentu dapat mempengaruhi konsentrasi seseorang saat belajar.
           </p>
-          <span class="text-white text-xs font-semibold mb-1">Hipotesis:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Hipotesis:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.q2"/>
+            <QuillEditor v-model:modelValue="answers.q2" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 1 -->
          <!-- Start of PAGE 2 -->
          <div id="page-2" v-show="currentPage === 2" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Mengumpulkan Data</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-xl font-bold">Mengumpulkan Data</span>
+          <p class="text-white text-xs lg:text-lg">
             A. Perhatikan tabel berikut <span @click="openImage('/element/img-q3.png')" class="text-yellow-400 cursor-pointer">(Lihat tabel)</span>. Diet A: Tinggi lemak jenuh dan gula, rendah serat dan protein. Diet B: Tinggi asam lemak omega-3, protein, dan serat, dengan sedikit gula. Tabel di bawah ini menunjukkan hasil tes kognitif pada kelompok yang mengonsumsi masing-masing diet selama tiga bulan:
           </p>
-          <span class="text-white text-xs font-semibold">Pertanyaan:</span>
-          <p class="text-white text-xs mb-1">Berdasarkan data di atas, apa yang dapat Anda simpulkan tentang hubungan antara diet dan fungsi kognitif?</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">Pertanyaan:</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Berdasarkan data di atas, apa yang dapat Anda simpulkan tentang hubungan antara diet dan fungsi kognitif?</p>
           <client-only>
             <QuillEditor v-model:modelValue="answers.q3"/>
           </client-only>
          </div>
          <!-- End of PAGE 2 -->
          <!-- Start of PAGE 3 -->
-         <div id="page-3" v-show="currentPage === 3" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <p class="text-white text-xs">
+         <div id="page-3" v-show="currentPage === 3" class="w-full pt-2 pb-4 h-full overflow-auto px-2">
+          <p class="text-white text-xs lg:text-lg">
             B. Berdasarkan narasi sebelumnya, tubuh kita membutuhkan nutrisi yang seimbang untuk membantu otak berfungsi secara optimal. Carilah referensi sebanyak-banyaknya mengenai makanan yang termasuk dalam kategori nutrisi berikut ini:
           </p>
-          <span class="text-white text-xs font-semibold">Karbohidrat:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Karbohidrat:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.carbs"/>
+            <QuillEditor v-model:modelValue="answers.carbs" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">Protein:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Protein:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.proteins"/>
+            <QuillEditor v-model:modelValue="answers.proteins" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">Lemak:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Lemak:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.fats"/>
+            <QuillEditor v-model:modelValue="answers.fats" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">Vitamin:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Vitamin:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.vitamins"/>
+            <QuillEditor v-model:modelValue="answers.vitamins" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">Mineral:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Mineral:</span>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.minerals"/>
+            <QuillEditor v-model:modelValue="answers.minerals" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 3 -->
          <!-- Start of PAGE 4 -->
          <div id="page-4" v-show="currentPage === 4" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Merancang Experimen</span>
-          <p class="text-white text-xs">
+          <span class="text-white text-xs lg:text-xl font-bold">Merancang Experimen</span>
+          <p class="text-white text-xs lg:text-lg mb-1 lg:mb-2">
             Misalkan Anda sedang merancang sebuah eksperimen untuk menguji hipotesis Anda tentang hubungan antara Obesitas dan Kalori yang Dibutuhkan. Lengkapi setiap bagian dari desain eksperimen di bawah ini.
           </p>
-          <span class="text-white text-xs font-semibold">P4: Variabel Independen</span>
-          <p class="text-white text-xs mb-1">Aspek spesifik apa dari komponen nutrisi yang akan Anda analisis dalam kaitannya dengan kemampuan otak untuk berkonsentrasi? Jelaskan.</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P4: Variabel Independen</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Aspek spesifik apa dari komponen nutrisi yang akan Anda analisis dalam kaitannya dengan kemampuan otak untuk berkonsentrasi? Jelaskan.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p4"/>
+            <QuillEditor v-model:modelValue="answers.p4" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">P5: Variabel Tergantung</span>
-          <p class="text-white text-xs mb-1">Hasil apa yang akan Anda ukur dalam eksperimen Anda?</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P5: Variabel Tergantung</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Hasil apa yang akan Anda ukur dalam eksperimen Anda?</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p5"/>
+            <QuillEditor v-model:modelValue="answers.p5" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 4-->
          <!-- Start of PAGE 5 -->
          <div id="page-5" v-show="currentPage === 5" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-semibold">P6: Variabel Kontrol</span>
-          <p class="text-white text-xs mb-1">Variabel apa yang akan Anda jaga agar tetap konstan untuk memastikan tes yang adil?</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P6: Variabel Kontrol</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Variabel apa yang akan Anda jaga agar tetap konstan untuk memastikan tes yang adil?</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p6"/>
+            <QuillEditor v-model:modelValue="answers.p6" class="my-1 lg:my-2"/>
           </client-only>
-          <span class="text-white text-xs font-semibold">P7: Bahan dan Peralatan</span>
-          <p class="text-white text-xs mb-1">Sebutkan bahan dan peralatan yang diperlukan untuk melakukan percobaan ini.</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P7: Bahan dan Peralatan</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Sebutkan bahan dan peralatan yang diperlukan untuk melakukan percobaan ini.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p7"/>
+            <QuillEditor v-model:modelValue="answers.p7" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 5 -->
          <!-- Start of PAGE 6 -->
          <div id="page-6" v-show="currentPage === 6" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-semibold">P8: Langkah-langkah Eksperimen</span>
-          <p class="text-white text-xs mb-1">Uraikan langkah-langkah yang akan Anda lakukan untuk menguji hipotesis Anda.</p>
+          <span class="text-white text-xs lg:text-lg font-semibold">P8: Langkah-langkah Eksperimen</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Uraikan langkah-langkah yang akan Anda lakukan untuk menguji hipotesis Anda.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.p8"/>
+            <QuillEditor v-model:modelValue="answers.p8" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 6 -->
          <!-- Start of PAGE 7 -->
          <div id="page-7" v-show="currentPage === 7" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-semibold">Jawablah pertanyaan-pertanyaan berikut dengan tepat:</span>
-          <p class="text-white text-xs my-1">Mengapa makanan penting untuk tubuh?</p>
+          <span class="text-white text-xs lg:text-xl font-semibold">Jawablah pertanyaan-pertanyaan berikut dengan tepat:</span>
+          <p class="text-white text-xs lg:text-lg my-1">Mengapa makanan penting untuk tubuh?</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.a1"/>
+            <QuillEditor v-model:modelValue="answers.a1" class="my-1 lg:my-2"/>
           </client-only>
-          <p class="text-white text-xs mt-2 mb-1">Analisislah apa yang akan terjadi pada tubuh jika kita kekurangan nutrisi.</p>
+          <p class="text-white text-xs lg:text-lg mt-2 mb-1">Analisislah apa yang akan terjadi pada tubuh jika kita kekurangan nutrisi.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.a2"/>
+            <QuillEditor v-model:modelValue="answers.a2" class="my-1 lg:my-2"/>
           </client-only>
-          <p class="text-white text-xs mt-2 mb-1">Mengapa makanan dianggap sebagai sumber energi bagi tubuh?</p>
+          <p class="text-white text-xs lg:text-lg mt-2 mb-1">Mengapa makanan dianggap sebagai sumber energi bagi tubuh?</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.a3"/>
+            <QuillEditor v-model:modelValue="answers.a3" class="my-1 lg:my-2"/>
           </client-only>
          </div>
          <!-- End of PAGE 7 -->
           <!-- Start of PAGE 8 -->
          <div id="page-8" v-show="currentPage === 8" class="w-full pt-2 pb-4 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Menarik Kesimpulan</span>
-          <p class="text-white text-xs mb-1">Berdasarkan data yang diberikan dan percobaan yang telah dirancang, buatlah kesimpulan tentang hubungan antara makanan dan fungsi otak.</p>
+          <span class="text-white text-xs lg:text-xl font-bold">Menarik Kesimpulan</span>
+          <p class="text-white text-xs lg:text-lg mb-1">Berdasarkan data yang diberikan dan percobaan yang telah dirancang, buatlah kesimpulan tentang hubungan antara makanan dan fungsi otak.</p>
           <client-only>
-            <QuillEditor v-model:modelValue="answers.conclusion"/>
+            <QuillEditor v-model:modelValue="answers.conclusion" class="my-1 lg:my-2"/>
           </client-only>
           <div class="flex w-full justify-center mt-6">
-            <button @click="handleSubmit()" class="w-28 py-2 px-2 rounded-full bg-yellow-200">
-              <LilitaText class="text-stroke-2 text-2xl">SIMPAN</LilitaText>
+            <button @click="handleSubmit()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+              <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">SIMPAN</LilitaText>
             </button>
           </div>
          </div>
