@@ -5,10 +5,10 @@
         <Element src="/element/exit-door.png" customClass="h-8 w-8 lg:h-10 lg:w-10" />
       </CircleButton>
     </div>
-    <div class="h-16 lg:h-24 w-52 lg:w-72 absolute top-0 left-0 flex justify-evenly items-center z-10">
-      <CircleButton class="h-12 w-12 lg:h-16 lg:w-16" @click="handleClick('/setting')">
+    <div class="h-16 lg:h-24 w-36 lg:w-56 absolute top-0 left-0 flex justify-evenly items-center z-10">
+      <!-- <CircleButton class="h-12 w-12 lg:h-16 lg:w-16" @click="handleClick('/setting')">
         <Element src="/element/gear.png" customClass="h-8 w-8 lg:h-10 lg:w-10" />
-      </CircleButton>
+      </CircleButton> -->
       <CircleButton class="h-12 w-12 lg:h-16 lg:w-16" @click="handleClick('/reference')">
         <Element src="/element/question-mark.png" customClass="h-8 w-6 lg:h-10 lg:w-8" />
       </CircleButton>
