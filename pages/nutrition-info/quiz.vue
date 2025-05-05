@@ -1,15 +1,15 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
-    <div v-if="showQuiz" class="h-14 w-18 absolute top-0 left-2 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('exit')" class="h-10 w-10" variant="secondary">
-        <Element src="/element/home.png" customClass="h-6" />
+    <div v-if="showQuiz" class="h-14 lg:h-24 w-18 lg:w-24 absolute top-0 left-2 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('exit')" class="h-10 w-10 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/home.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-if="showQuizTitle" class="z-10 min-w-96 justify-center absolute top-5 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-4 text-5xl">INFORMASI GIZI</LilitaText>
+    <div v-if="showQuizTitle" class="z-10 min-w-96 justify-center absolute top-5 lg:top-10 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-4 text-5xl lg:text-8xl">INFORMASI GIZI</LilitaText>
     </div>
-    <div v-if="showScore" class="z-10 justify-center absolute top-5 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-4 text-6xl">SKOR</LilitaText>
+    <div v-if="showScore" class="z-10 justify-center absolute top-5 lg:top-10 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-4 text-6xl lg:text-8xl">SKOR</LilitaText>
     </div>
     <div v-if="showQuiz" class="relative flex justify-center items-end w-[80%] h-[80%] p-2 bg-blue-900 bg-opacity-90">
       <Element src="/element/orange.png" customClass="absolute top-[-30px] left-[-20px] w-16"/>
@@ -19,19 +19,21 @@
       <div class="flex justify-center items-center gap-2 w-[95%] h-[90%] z-10">
         <!-- Start of quiz -->
         <div class="w-full pt-2 pb-4 px-2 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Soal {{ currentPage + 1 }}</span>
-          <p class="text-white text-xs text-justify">
+          <span class="text-white text-xs lg:text-xl font-bold">Soal {{ currentPage + 1 }}</span>
+          <p class="text-white text-xs lg:text-lg text-justify">
             {{ questions[currentPage].question }}
             <span @click="openImage(questions[currentPage].img_path)" class="text-yellow-400 cursor-pointer">(Lihat gambar)</span>
           </p>
-          <span class="text-white text-xs font-semibold">Pilih jawabanmu:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Pilih jawabanmu:</span>
           <!-- Start of choices -->
           <div class="grid grid-cols-2 gap-4 mt-2">
             <label
               v-for="(option, index) in questions[currentPage].option"
               :key="index"
-              class="flex items-center p-3 border-2 rounded-lg cursor-pointer bg-white hover:bg-rose-400"
-              :class="{ 'bg-rose-50': selectedOption === option.value }"
+              class="flex items-center p-3 border-2 rounded-lg cursor-pointer transition-colors"
+              :class="{ 
+                'bg-rose-400 text-white': selectedOption === option.value,
+                'bg-white': selectedOption !== option.value }"
             >
               <input
                 type="radio"
@@ -39,13 +41,13 @@
                 v-model="selectedOption"
                 class="hidden"
               />
-              <span class="text-xs hover:text-white">{{ option.label }}</span>
+              <span class="text-xs lg:text-lg">{{ option.label }}</span>
             </label>
           </div>
           <!-- End of choices -->
           <div class="flex w-full justify-center mt-6">
-            <button @click="handleSubmit()" class="w-28 py-2 px-2 rounded-full bg-yellow-200">
-              <LilitaText class="text-stroke-2 text-2xl">SUBMIT</LilitaText>
+            <button @click="handleSubmit()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+              <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">SUBMIT</LilitaText>
             </button>
           </div>
          </div>
@@ -73,7 +75,7 @@
         </div>
       </div>
       <div class="absolute bottom-3 left-[15px]">
-        <Element src="/element/nice-chef.png" class="w-40"></Element>
+        <Element src="/element/nice-chef.png" class="w-40 lg:w-60"></Element>
       </div>
     </div>
     <!-- END OF GOOD JOB -->
@@ -98,7 +100,7 @@
         </div>
       </div>
       <div class="absolute bottom-3 left-[15px]">
-        <Element src="/element/try-chef.png" class="w-36"></Element>
+        <Element src="/element/try-chef.png" class="w-36 lg:w-60"></Element>
       </div>
     </div>
     <!-- END OF TRY AGAIN -->
@@ -111,19 +113,19 @@
       <div class="flex flex-col justify-center items-center gap-2 md:gap-0 w-[100%] h-[85%] z-10">
         <div class="flex items-center justify-center gap-2 overflow-auto">
           <div class="w-[20%] -scale-x-100">
-            <ChefRight class="w-32"/>
+            <ChefRight class="w-32 lg:w-52"/>
           </div>
           <div class="flex flex-col w-[80%] h-full">
-            <span class="text-white text-xs font-bold">{{ questions[currentPage].label }}</span>
-            <p class="text-white text-xs mt-2">
-              <span class="text-white text-xs font-bold">🔍 Penjelasan Ilmiah:</span>
+            <span class="text-white text-xs lg:text-lg font-bold">{{ questions[currentPage].label }}</span>
+            <p class="text-white text-xs lg:text-lg mt-2">
+              <span class="text-white text-xs lg:text-lg font-bold">🔍 Penjelasan Ilmiah:</span>
               {{ questions[currentPage].explaination }}
             </p>
           </div>
         </div>
 
-        <button @click="handleNext()" class="w-24 py-2 px-2 rounded-full bg-yellow-200">
-          <LilitaText class="text-stroke-2 text-2xl">NEXT</LilitaText>
+        <button @click="handleNext()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+          <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">NEXT</LilitaText>
         </button>
       </div>
     </div>
@@ -141,10 +143,10 @@
           </div>
         </div>
         <div class="absolute bottom-3 left-10 -scale-x-100">
-          <ChefRight class="w-32"/>
+          <ChefRight class="w-32 lg:w-60"/>
         </div>
-        <button @click="handleNext()" class="w-24 py-2 px-2 rounded-full bg-yellow-200">
-          <LilitaText class="text-stroke-2 text-2xl">NEXT</LilitaText>
+        <button @click="handleNext()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+          <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">NEXT</LilitaText>
         </button>
       </div>
     </div>
@@ -211,7 +213,7 @@ const questions = ref({
     answer: 'b',
     label: 'B. Produk A lebih sehat karena meskipun kalorinya lebih tinggi, ia menyediakan protein, lemak sehat, serta vitamin dan mineral penting yang tidak dimiliki oleh Produk B.',
     explaination: 'Produk A (susu) memang memiliki kalori lebih tinggi, tetapi juga menyediakan gizi lengkap: protein, lemak sehat, vitamin A, D, B kompleks, dan mineral penting. Produk B (minuman bersoda) hanya menyediakan kalori dari gula, tanpa nilai gizi lain, menjadikannya kurang sehat. Dalam memilih makanan, penting mempertimbangkan keseimbangan nutrisi, bukan hanya jumlah kalori.',
-    img_path: '/element/n1.png',
+    img_path: '/element/gizi1.jpg',
     option: [
       { value: 'a', label: 'A. Produk B lebih sehat karena memiliki kalori lebih rendah, gula yang cukup, dan nol lemak, sehingga cocok dikonsumsi bagi yang sedang diet kalori.' },
       { value: 'b', label: 'B. Produk A lebih sehat karena meskipun kalorinya lebih tinggi, ia menyediakan protein, lemak sehat, serta vitamin dan mineral penting yang tidak dimiliki oleh Produk B.' },
@@ -228,7 +230,7 @@ const questions = ref({
     answer: 'c',
     label: 'C. Makanan tinggi gula dapat menyebabkan lonjakan kadar gula darah yang cepat dan kemudian turun drastis.',
     explaination: 'Makanan tinggi gula cepat diserap tubuh, menyebabkan kadar gula darah melonjak, kemudian turun drastis, yang bisa memengaruhi energi dan konsentrasi. Ini dapat berdampak pada kesehatan jangka panjang, seperti risiko diabetes. Pilihan lain tidak benar karena mengabaikan pentingnya keseimbangan zat gizi.',
-    img_path: '/element/n2.png',
+    img_path: '',
     option: [
       { value: 'a', label: 'A. Kalori dari gula bisa langsung dibakar tubuh sehingga tidak menimbulkan masalah jika dikonsumsi dalam jumlah besar.' },
       { value: 'b', label: 'B. Minuman bersoda bisa menjadi sumber utama protein karena kandungan kalorinya tinggi.' },
@@ -245,7 +247,7 @@ const questions = ref({
     answer: 'b',
     label: 'B. Konsumsi tersebut melebihi kebutuhan energi hariannya dan berisiko menyebabkan kelebihan energi jika dikonsumsi terus-menerus.',
     explaination: '3 bungkus selai kacang = 3 × 562 = 1.686 kkal, hampir seluruh kebutuhan hariannya (1.800 kkal). Jika dia juga mengonsumsi makanan lain, maka total kalori harian akan berlebih, dan jika pola ini berlangsung lama, bisa meningkatkan risiko penambahan berat badan atau kelebihan energi.',
-    img_path: '/element/n3.png',
+    img_path: '/element/gizi3.jpg',
     option: [
       { value: 'a', label: 'A. Konsumsi tersebut masih sangat jauh di bawah kebutuhan energi hariannya, sehingga ia perlu menambah asupan energi dari makanan lain.' },
       { value: 'b', label: 'B. Konsumsi tersebut melebihi kebutuhan energi hariannya dan berisiko menyebabkan kelebihan energi jika dikonsumsi terus-menerus.' },
@@ -262,7 +264,7 @@ const questions = ref({
     answer: 'd',
     label: 'D. Mi instan dapat memenuhi sebagian energi, tetapi konsumsi rutin 2–3 bungkus per hari berisiko menimbulkan gangguan tekanan darah tinggi akibat kelebihan natrium.',
     explaination: 'Mi instan umumnya mengandung natrium tinggi, dan konsumsi berlebihan dapat meningkatkan tekanan darah dan risiko penyakit jantung. Meski mengandung beberapa vitamin, nilai gizinya tetap terbatas. Mengandalkan mi instan sebagai makanan utama dapat mengganggu keseimbangan nutrisi harian.',
-    img_path: '/element/n4.png',
+    img_path: '/element/gizi4.jpg',
     option: [
       { value: 'a', label: 'A. Konsumsi 3 bungkus mi instan sudah memenuhi kebutuhan energi dan natrium secara ideal, namun dapat menyebabkan anemia karena kurang zat besi.' },
       { value: 'b', label: 'B. Meskipun tinggi garam, konsumsi rutin mi instan aman karena mengandung vitamin B dan zat besi yang mencegah stroke.' },
@@ -279,7 +281,7 @@ const questions = ref({
     answer: 'c',
     label: 'C. Melakukan eksperimen dengan dua kelompok siswa: satu diberi informasi gizi sebelum memilih makanan, satu tidak; kemudian membandingkan pilihan makanan mereka.',
     explaination: 'Pilihan C merupakan eksperimen kuasi yang membandingkan dua kelompok, sehingga dapat mengungkap secara langsung pengaruh informasi gizi terhadap perilaku memilih makanan. Ini mencerminkan metode ilmiah yang kuat karena ada variabel kontrol dan pengamatan perilaku nyata.',
-    img_path: '/element/n5.png',
+    img_path: '/element/gizi5.jpg',
     option: [
       { value: 'a', label: 'A. Membandingkan rasa antara junk food dan makanan sehat, lalu menyebarkan kuesioner mengenai rasa yang paling disukai.' },
       { value: 'b', label: 'B. Membuat video edukasi gizi dan menilai perubahan perilaku makan setelah seminggu.' },
