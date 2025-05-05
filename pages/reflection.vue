@@ -43,8 +43,8 @@
               :key="index"
               class="flex flex-col items-center p-2 border-2 rounded-lg cursor-pointer transition-colors"
               :class="{ 
-                'bg-rose-400 text-white': selectedOption === option.value,
-                'bg-yellow-300': selectedOption !== option.value }"
+              'bg-rose-400 text-white': selectedOption === option.value,
+              'bg-yellow-300': selectedOption !== option.value }"
             >
               <input
                 type="radio"
