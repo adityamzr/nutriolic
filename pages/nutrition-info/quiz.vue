@@ -139,7 +139,7 @@
       <div class="relative flex flex-col justify-center items-center gap-2 md:gap-0 w-[100%] h-[85%] z-10">
         <div class="flex items-center justify-center mb-5">
           <div class="flex items-center w-full h-full">
-            <LilitaText class="text-7xl">{{ score }}</LilitaText>
+            <LilitaText class="text-7xl lg:text-9xl">{{ score }}</LilitaText>
           </div>
         </div>
         <div class="absolute bottom-3 left-10 -scale-x-100">

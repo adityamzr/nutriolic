@@ -1,15 +1,15 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
-    <div v-if="showQuiz" class="h-14 w-18 absolute top-0 left-2 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('exit')" class="h-10 w-10" variant="secondary">
-        <Element src="/element/home.png" customClass="h-6" />
+    <div v-if="showQuiz" class="h-14 lg:h-24 w-18 lg:w-24 absolute top-0 left-2 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('exit')" class="h-10 lg:h-16 w-10 lg:w-16" variant="secondary">
+        <Element src="/element/home.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-if="showQuizTitle" class="z-10 justify-center absolute top-5 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-4 text-center text-5xl min-w-96">ISI PIRINGKU</LilitaText>
+    <div v-if="showQuizTitle" class="z-10 justify-center absolute top-5 lg:top-10 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-4 text-center text-5xl lg:text-8xl min-w-96">ISI PIRINGKU</LilitaText>
     </div>
-    <div v-if="showScore" class="z-10 justify-center absolute top-5 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-4 text-6xl">SKOR</LilitaText>
+    <div v-if="showScore" class="z-10 justify-center absolute top-5 lg:top-10 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-4 text-6xl lg:text-8xl">SKOR</LilitaText>
     </div>
     <div v-if="showQuiz" class="relative flex justify-center items-end w-[80%] h-[80%] p-2 bg-blue-900 bg-opacity-90">
       <Element src="/element/orange.png" customClass="absolute top-[-30px] left-[-20px] w-16"/>
@@ -19,19 +19,21 @@
       <div class="flex justify-center items-center gap-2 w-[95%] h-[90%] z-10">
         <!-- Start of quiz -->
         <div class="w-full pt-2 pb-4 px-2 h-full overflow-auto">
-          <span class="text-white text-xs font-bold">Soal {{ currentPage + 1 }}</span>
-          <p class="text-white text-xs text-justify">
+          <span class="text-white text-xs lg:text-lg font-bold">Soal {{ currentPage + 1 }}</span>
+          <p class="text-white text-xs lg:text-lg text-justify">
             {{ questions[currentPage].question }}
             <span @click="openImage(questions[currentPage].img_path)" class="text-yellow-400 cursor-pointer">(Lihat gambar)</span>
           </p>
-          <span class="text-white text-xs font-semibold">Pilih jawabanmu:</span>
+          <span class="text-white text-xs lg:text-lg font-semibold">Pilih jawabanmu:</span>
           <!-- Start of choices -->
           <div class="grid grid-cols-2 gap-4 mt-2">
             <label
               v-for="(option, index) in questions[currentPage].option"
               :key="index"
-              class="flex items-center p-3 border-2 rounded-lg cursor-pointer bg-white hover:bg-rose-400"
-              :class="{ 'bg-rose-50': selectedOption === option.value }"
+              class="flex items-center p-3 border-2 rounded-lg cursor-pointer transition-colors"
+              :class="{ 
+                'bg-rose-400 text-white': selectedOption === option.value,
+                'bg-white': selectedOption !== option.value }"
             >
               <input
                 type="radio"
@@ -39,13 +41,13 @@
                 v-model="selectedOption"
                 class="hidden"
               />
-              <span class="text-xs hover:text-white">{{ option.label }}</span>
+              <span class="text-xs lg:text-lg">{{ option.label }}</span>
             </label>
           </div>
           <!-- End of choices -->
           <div class="flex w-full justify-center mt-6">
-            <button @click="handleSubmit()" class="w-28 py-2 px-2 rounded-full bg-yellow-200">
-              <LilitaText class="text-stroke-2 text-2xl">SUBMIT</LilitaText>
+            <button @click="handleSubmit()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+              <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">SUBMIT</LilitaText>
             </button>
           </div>
          </div>
@@ -73,7 +75,7 @@
         </div>
       </div>
       <div class="absolute bottom-3 left-[15px]">
-        <Element src="/element/nice-chef.png" class="w-40"></Element>
+        <Element src="/element/nice-chef.png" class="w-40 lg:w-60"></Element>
       </div>
     </div>
     <!-- END OF GOOD JOB -->
@@ -98,7 +100,7 @@
         </div>
       </div>
       <div class="absolute bottom-3 left-[15px]">
-        <Element src="/element/try-chef.png" class="w-36"></Element>
+        <Element src="/element/try-chef.png" class="w-36 lg:w-60"></Element>
       </div>
     </div>
     <!-- END OF TRY AGAIN -->
@@ -111,19 +113,19 @@
       <div class="flex flex-col justify-center items-center gap-2 md:gap-0 w-[100%] h-[85%] z-10">
         <div class="flex items-center justify-center gap-2 overflow-auto">
           <div class="w-[20%] -scale-x-100">
-            <ChefRight class="w-32"/>
+            <ChefRight class="w-32 lg:w-52"/>
           </div>
           <div class="flex flex-col w-[80%] h-full">
-            <span class="text-white text-xs font-bold">{{ questions[currentPage].label }}</span>
-            <p class="text-white text-xs mt-2">
-              <span class="text-white text-xs font-bold">🔍 Penjelasan Ilmiah:</span>
+            <span class="text-white text-xs lg:text-lg font-bold">{{ questions[currentPage].label }}</span>
+            <p class="text-white text-xs lg:text-lg mt-2">
+              <span class="text-white text-xs lg:text-lg font-bold">🔍 Penjelasan Ilmiah:</span>
               {{ questions[currentPage].explaination }}
             </p>
           </div>
         </div>
 
-        <button @click="handleNext()" class="w-24 py-2 px-2 rounded-full bg-yellow-200">
-          <LilitaText class="text-stroke-2 text-2xl">NEXT</LilitaText>
+        <button @click="handleNext()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+          <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">NEXT</LilitaText>
         </button>
       </div>
     </div>
@@ -137,14 +139,14 @@
       <div class="relative flex flex-col justify-center items-center gap-2 md:gap-0 w-[100%] h-[85%] z-10">
         <div class="flex items-center justify-center mb-5">
           <div class="flex items-center w-full h-full">
-            <LilitaText class="text-7xl">{{ score }}</LilitaText>
+            <LilitaText class="text-7xl lg:text-9xl">{{ score }}</LilitaText>
           </div>
         </div>
         <div class="absolute bottom-3 left-10 -scale-x-100">
-          <ChefRight class="w-32"/>
+          <ChefRight class="w-32 lg:w-60"/>
         </div>
-        <button @click="handleNext()" class="w-24 py-2 px-2 rounded-full bg-yellow-200">
-          <LilitaText class="text-stroke-2 text-2xl">NEXT</LilitaText>
+        <button @click="handleNext()" class="w-fit py-2 px-2 lg:px-4 rounded-full bg-yellow-200">
+          <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">NEXT</LilitaText>
         </button>
       </div>
     </div>
@@ -211,7 +213,7 @@ const questions = ref({
     answer: 'c',
     label: 'C. Karena buah dan sayur membantu menjaga fungsi pencernaan, daya tahan tubuh, dan mencegah penyakit jangka panjang yang rawan terjadi saat remaja.',
     explaination: 'Panduan “Isi Piringku” menekankan pentingnya buah dan sayur karena kandungan serat, vitamin, dan antioksidannya membantu memperkuat sistem imun, memperlancar pencernaan, dan mencegah penyakit degeneratif. Ini sangat penting bagi remaja yang sedang dalam masa pertumbuhan.',
-    img_path: '/element/n6.png',
+    img_path: '/element/piringku1.jpg',
     option: [
       { value: 'a', label: 'A. Karena buah dan sayur menghasilkan energi paling tinggi dibanding zat gizi lainnya, sehingga cocok dikonsumsi dalam jumlah banyak.' },
       { value: 'b', label: 'B. Karena serat, vitamin, dan mineral dari buah dan sayur sangat dibutuhkan untuk pertumbuhan otot dan pembentukan energi utama dalam tubuh.' },
@@ -228,7 +230,7 @@ const questions = ref({
     answer: 'b',
     label: 'B. Peningkatan kadar gula darah karena kekurangan serat.',
     explaination: 'Konsumsi biji-bijian berlebih (terutama jika olahan) dan rendahnya asupan sayur menyebabkan asupan serat rendah. Ini bisa memicu peningkatan kadar gula darah dan masalah pencernaan karena tidak seimbangnya komposisi makanan.',
-    img_path: '/element/n7.png',
+    img_path: '/element/piringku2.jpg',
     option: [
       { value: 'a', label: 'A. Penyerapan kalsium dalam tubuh meningkat.' },
       { value: 'b', label: 'B. Peningkatan kadar gula darah karena kekurangan serat.' },
@@ -245,7 +247,7 @@ const questions = ref({
     answer: 'c',
     label: 'C. Risiko kekurangan mikronutrien seperti vitamin dan serat meningkat.',
     explaination: 'Asupan buah dan sayur yang sangat rendah tidak cukup untuk memenuhi kebutuhan vitamin, mineral, dan serat. Dalam jangka panjang, hal ini bisa memicu masalah seperti gangguan imun, sembelit, dan risiko penyakit degeneratif.',
-    img_path: '/element/n8.png',
+    img_path: '/element/piringku3.jpg',
     option: [
       { value: 'a', label: 'A. Tubuh menyimpan lebih banyak energi dari protein.' },
       { value: 'b', label: 'B. Pencernaan menjadi lebih cepat dan lancar.' },
@@ -262,7 +264,7 @@ const questions = ref({
     answer: 'a',
     label: 'A. 28 siswa.',
     explaination: 'Perhitungan: Usia 10–14 tahun: 15,3% × 80 = 12,24 siswa → dibulatkan menjadi 12 siswa. Usia 15–19 tahun: 13,3% × 120 = 15,96 siswa → dibulatkan menjadi 16 siswa. Total: 12 + 16 = 28 siswa.',
-    img_path: '/element/n9.png',
+    img_path: '/element/piringku4.jpg',
     option: [
       { value: 'a', label: 'A. 28 siswa.' },
       { value: 'b', label: 'B. 27 siswa.' },
@@ -279,7 +281,7 @@ const questions = ref({
     answer: 'c',
     label: 'C. Karena mendorong konsumsi buah, sayur, dan protein yang mengandung zat besi dan nutrisi penting untuk pertumbuhan.',
     explaination: 'Anemia pada remaja umumnya disebabkan oleh kurangnya asupan zat besi dan vitamin penting. “Isi Piringku” mendorong konsumsi makanan seimbang, termasuk buah, sayur, dan lauk berprotein tinggi seperti daging, ikan, atau kacang-kacangan yang mengandung zat besi.',
-    img_path: '/element/n10.png',
+    img_path: '/element/piringku5.jpg',
     option: [
       { value: 'a', label: 'A. Karena membantu meningkatkan konsumsi kalori secara signifikan agar tidak mudah lapar.' },
       { value: 'b', label: 'B. Karena menurunkan kebutuhan zat besi dan protein sehingga remaja tidak kelebihan zat gizi.' },
