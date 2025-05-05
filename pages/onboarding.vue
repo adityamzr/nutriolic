@@ -33,7 +33,7 @@
         </div>
       </div>
       <span class="text-xs lg:text-xl text-white font-semibold ob1">Hai anak-anak hebat! Sebelum mulai, bacalah narasi di atas. Masalah itu muncul karena kurangnya asupan nutrisi dalam tubuh. Yuk, kita pelajari bersama cara mencegah penyakit lewat nutrisi yang baik!</span>
-      <span class="text-xs lg:text-xl text-white font-semibold ob2 hidden">Berdasarkan angka yang ditampilkan dalam infografis?mengapa anak-anak usia 5-12 tahun rentan mengalami obesitas?</span>
+      <span class="text-xs lg:text-xl text-white font-semibold ob2 hidden">Berdasarkan angka yang ditampilkan dalam infografis, menurutmu mengapa anak-anak usia 5-12 tahun rentan mengalami obesitas?</span>
       <input v-model="onboarding" type="text" name="onboarding" class="w-full py-1 text-xs text-white bg-transparent border-b-2 border-dashed border-white ob2 hidden"></input>
     </div>
     <div class="flex flex-col items-center justify-center w-28 lg:w-52 bottom-[-50px] right-[15px]">

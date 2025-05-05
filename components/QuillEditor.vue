@@ -7,7 +7,7 @@
 
 <template>
   <div>
-    <div ref="editorRef" class="bg-white border rounded-xl" />
+    <div ref="editorRef" class="bg-white border rounded-xl text-xs md:text-md lg:text-lg" />
   </div>
 </template>
 

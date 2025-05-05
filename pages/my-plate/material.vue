@@ -291,6 +291,26 @@ const handleClick = (path) => {
   const current = pageMap[currentPage.value - 1];
   const isEmpty = current.fields.some((field) => {
     const value = answers.value[field];
+    
+    if (field === 'p9') {
+      const emptyFields = [];
+
+      Object.entries(value).forEach(([key, item]) => {
+        Object.entries(item).forEach(([subKey, v]) => {
+          if (!v || v === '<p><br></p>') {
+            emptyFields.push(`${key}.${subKey}`);
+          }
+        });
+      });
+
+      if (emptyFields.length > 0) {
+        console.log('Field kosong:', emptyFields);
+        return true;
+      }
+
+      return false;
+    }
+    
     return !value || value === '<p><br></p>';
   });
 

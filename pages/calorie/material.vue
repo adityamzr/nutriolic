@@ -399,7 +399,7 @@ const pageMap = [
   { id: 'page-2', fields: ['activities', 'q3'] },
   { id: 'page-3', fields: ['q4', 'q5'] },
   { id: 'page-4', fields: ['food_items', 'q6'] },
-  { id: 'page-5', fields: [''] },
+  { id: 'page-5', fields: [] },
   { id: 'page-6', fields: ['p4', 'p5'] },
   { id: 'page-7', fields: ['p6', 'p7'] },
   { id: 'page-8', fields: ['p8'] },
@@ -449,6 +449,25 @@ const handleClick = (path) => {
     }
 
     if (field === 'food_items') {
+      const emptyFields = [];
+
+      Object.entries(value).forEach(([key, item]) => {
+        Object.entries(item).forEach(([subKey, v]) => {
+          if (!v || v === '<p><br></p>') {
+            emptyFields.push(`${key}.${subKey}`);
+          }
+        });
+      });
+
+      if (emptyFields.length > 0) {
+        console.log('Field kosong:', emptyFields);
+        return true;
+      }
+
+      return false;
+    }
+
+    if (field === 'p9') {
       const emptyFields = [];
 
       Object.entries(value).forEach(([key, item]) => {

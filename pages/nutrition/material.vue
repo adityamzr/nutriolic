@@ -309,7 +309,7 @@ const pageMap = [
   { id: 'page-1', fields: ['q1', 'q2'] },
   { id: 'page-2', fields: ['q3'] },
   { id: 'page-3', fields: ['carbs', 'proteins', 'fats', 'vitamins', 'minerals'] },
-  { id: 'page-4', fields: [''] },
+  { id: 'page-4', fields: [] },
   { id: 'page-5', fields: ['p4', 'p5'] },
   { id: 'page-6', fields: ['p6', 'p7'] },
   { id: 'page-7', fields: ['p8'] },
@@ -343,6 +343,26 @@ const handleClick = (path) => {
   const current = pageMap[currentPage.value - 1]; // halaman sekarang
   const isEmpty = current.fields.some((field) => {
     const value = answers.value[field];
+
+    if (field === 'p9') {
+      const emptyFields = [];
+
+      Object.entries(value).forEach(([key, item]) => {
+        Object.entries(item).forEach(([subKey, v]) => {
+          if (!v || v === '<p><br></p>') {
+            emptyFields.push(`${key}.${subKey}`);
+          }
+        });
+      });
+
+      if (emptyFields.length > 0) {
+        console.log('Field kosong:', emptyFields);
+        return true;
+      }
+
+      return false;
+    }
+
     return !value || value === '<p><br></p>';
   });
 
@@ -388,7 +408,7 @@ const handleSubmit = async () => {
 
   const payload = JSON.stringify(answers.value)
   const token = localStorage.getItem('token')
-  
+
   try {
     const res = await fetch(`${apiUrl}/nutrisi-responses`, {
       method: 'PUT',
