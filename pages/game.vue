@@ -1,17 +1,17 @@
 <template>
   <div class="relative h-screen w-full flex justify-center items-center overflow-hidden">
-    <div v-show="currentPage != 3" class="h-14 w-18 absolute top-0 left-2 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('/home')" class="h-10 w-10" variant="secondary">
-        <Element src="/element/home.png" customClass="h-6" />
+    <div v-show="currentPage != 3" class="h-14 lg:h-24 w-18 lg:w-24 absolute top-0 left-2 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('/home')" class="h-10 w-10 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/home.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage > 0 && currentPage != 3" class="h-16 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 flex justify-evenly items-center">
-      <CircleButton @click="handleClick('back')" class="h-12 w-12" variant="secondary">
-        <Element src="/element/arrow-left.png" customClass="h-6" />
+    <div v-show="currentPage > 0 && currentPage != 3" class="h-16 lg:h-24 w-16 md:w-24 absolute top-1/2 -translate-y-1/2 left-0 lg:left-4 flex justify-evenly items-center">
+      <CircleButton @click="handleClick('back')" class="h-12 w-12 lg:h-16 lg:w-16" variant="secondary">
+        <Element src="/element/arrow-left.png" customClass="h-6 lg:h-9" />
       </CircleButton>
     </div>
-    <div v-show="currentPage != 3" class="z-10 flex justify-center absolute top-3 left-1/2 -translate-x-1/2">
-      <LilitaText class="text-stroke-4 text-6xl">GAME</LilitaText>
+    <div v-show="currentPage != 3" class="z-10 flex justify-center absolute top-3 lg:top-6 left-1/2 -translate-x-1/2">
+      <LilitaText class="text-stroke-4 text-6xl lg:text-8xl">GAME</LilitaText>
     </div>
     <div v-show="currentPage != 3" class="relative flex justify-center items-end w-[80%] h-[80%] p-2 bg-blue-900 bg-opacity-90 rounded-3xl">
       <!-- KALKULATOR BMR -->
@@ -19,16 +19,16 @@
         <!-- KALKULATOR -->
         <div v-show="currentPage === 0" class="flex h-full items-start gap-4">
           <div class="w-1/2 h-full">
-            <p class="text-xs text-white text-justify">BMR (Basal Metabolic Rate) digunakan untuk menentukan jumlah kalori minimum yang dibutuhkan tubuh Anda untuk menjalankan fungsi dasarnya. BMR dapat membantu Anda mengetahui kebutuhan kalori harian Anda, dan menjaga kesehatan Anda.</p>
+            <p class="text-xs lg:text-xl text-white text-justify">BMR (Basal Metabolic Rate) digunakan untuk menentukan jumlah kalori minimum yang dibutuhkan tubuh Anda untuk menjalankan fungsi dasarnya. BMR dapat membantu Anda mengetahui kebutuhan kalori harian Anda, dan menjaga kesehatan Anda.</p>
           </div>
           <div class="w-1/2 h-full">
             <div class="w-full h-fit bg-yellow-300 rounded-lg py-2 px-4 text-center">
-              <LilitaText class="text-stroke-2 text-2xl">Kalkulator BMR</LilitaText>
-              <input v-model="bmrInput.age" type="number" placeholder="Usia 15-80" class="px-4 py-1 md:py-2 rounded-lg w-full mb-2">
-              <div class="flex items-center gap-2 mb-2">
-                <label class="flex items-center gap-2">
+              <LilitaText class="text-stroke-2 text-2xl lg:text-4xl">Kalkulator BMR</LilitaText>
+              <input v-model="bmrInput.age" type="number" placeholder="Usia 15-80" class="px-4 py-1 md:py-2 rounded-lg w-full my-1 lg:my-2 lg:placeholder:text-lg lg:h-12">
+              <div class="flex items-center gap-2 my-1 lg:my-2">
+                <label class="flex items-center gap-2 lg:text-lg">
                   <input
-                    class="w-6 h-6"
+                    class="w-6 h-6 lg:w-8 lg:h-8"
                     type="radio"
                     name="gender"
                     value="male"
@@ -36,9 +36,9 @@
                   />
                   Pria
                 </label>
-                <label class="flex items-center gap-2">
+                <label class="flex items-center gap-2 lg:text-lg">
                   <input
-                    class="w-6 h-6"
+                    class="w-6 h-6 lg:w-8 lg:h-8"
                     type="radio"
                     name="gender"
                     value="female"
@@ -47,9 +47,9 @@
                   Wanita
                 </label>
               </div>
-              <input v-model="bmrInput.height" type="number" placeholder="Tinggi Badan (cm)" class="px-4 py-1 md:py-2 rounded-lg w-full mb-2">
-              <input v-model="bmrInput.weight" type="number" placeholder="Berat Badan (kg)" class="px-4 py-1 md:py-2 rounded-lg w-full mb-2">
-              <button @click="handleBMR()" class="mt-2 mb-1 px-6 py-2 bg-rose-400 text-white rounded">
+              <input v-model="bmrInput.height" type="number" placeholder="Tinggi Badan (cm)" class="px-4 py-1 md:py-2 rounded-lg w-full my-1 lg:my-2 lg:h-12 lg:placeholder:text-lg">
+              <input v-model="bmrInput.weight" type="number" placeholder="Berat Badan (kg)" class="px-4 py-1 md:py-2 rounded-lg w-full my-1 lg:my-2 lg:h-12 lg:placeholder:text-lg">
+              <button @click="handleBMR()" class="mt-2 my-1 lg:my-2 px-6 py-2 bg-rose-400 text-white rounded lg:text-xl">
                 Hitung BMR-ku
               </button>
             </div>
@@ -58,11 +58,11 @@
 
         <!-- HASIL BMR -->
         <div v-show="currentPage === 1" class="flex flex-col w-full h-full justify-start items-center text-center mt-8 gap-2">
-          <span class="text-white text-xl font-bold">BMR kamu adalah {{ bmr }} kalori per hari</span>
-          <span class="text-yellow-400 text-md font-bold">Ayo susun makanan ke dalam piring berdasarkan BMR-mu!</span>
+          <span class="text-white text-xl lg:text-4xl font-bold">BMR kamu adalah {{ bmr }} kalori per hari</span>
+          <span class="text-yellow-400 text-md lg:text-xl font-bold">Ayo susun makanan ke dalam piring berdasarkan BMR-mu!</span>
           <div @click="handleClick('next')" class="flex flex-col items-center justify-center">
-            <span class="text-green-400 font-bold">Click The Plate!</span>
-            <Element src="/element/game-plate.png" customClass="w-32"/>
+            <span class="text-green-400 font-bold lg:text-lg">Click The Plate!</span>
+            <Element src="/element/game-plate.png" customClass="w-32 lg:w-48"/>
           </div>
         </div>
       </div>
@@ -73,8 +73,8 @@
         <!-- Area Piring -->
         <div class="relative flex flex-col justify-center w-[60%] h-full gap-2">
           <!-- Piring besar -->
-          <div class="border-2 p-4 rounded-full self-center w-48 h-48 flex flex-wrap content-center justify-center bg-gray-50">
-            <div class="relative border-2 border-black p-1 rounded-full w-40 h-40 flex flex-wrap content-center justify-center bg-gray-300">
+          <div class="border-2 p-4 rounded-full self-center w-48 h-48 lg:h-72 lg:w-72 flex flex-wrap content-center justify-center bg-gray-50">
+            <div class="relative border-2 border-black p-1 rounded-full w-40 lg:w-60 h-40 lg:h-60 flex flex-wrap content-center justify-center bg-gray-300">
               <div class="absolute top-[40%] left-0 w-1/2 h-0.5 bg-black"></div>
               <div class="absolute bottom-[40%] right-0 w-1/2 h-0.5 bg-black"></div>
               <div class="absolute left-1/2 top-0 h-full w-0.5 bg-black"></div>
@@ -87,9 +87,9 @@
           </div>
 
           <!-- Piring kecil -->
-          <div class="absolute -top-1 -right-1 z-20">
-            <div class="border-2 p-4 rounded-full w-28 h-28 flex flex-wrap content-center justify-center bg-gray-50">
-              <div class="border-2 border-black p-1 rounded-full w-[80px] h-[80px] flex flex-wrap content-center justify-center bg-gray-300">
+          <div class="absolute -top-1 -right-1 lg:right-10 z-20">
+            <div class="border-2 p-4 rounded-full w-28 lg:w-40 h-28 lg:h-40 flex flex-wrap content-center justify-center bg-gray-50">
+              <div class="border-2 border-black p-1 rounded-full w-[80px] lg:w-32 h-[80px] lg:h-32 flex flex-wrap content-center justify-center bg-gray-300">
                 <draggable :list="littlePlateItems" group="foods" item-key="id" class="grid grid-cols-2 gap-2">
                   <template #item="{ element }">
                     <Element :src="`/element/${element.name}.png`" customClass="w-12"/>
@@ -100,7 +100,7 @@
           </div>
 
           <div class="w-[70%] h-24 bg-yellow-300 rounded-lg py-2 px-4 self-end">
-            <p class="text-xs font-semibold">Susun makanan di atas piring, dan mari kita mulai membuat piring Anda!</p>
+            <p class="text-xs lg:text-xl font-semibold">Susun makanan di atas piring, dan mari kita mulai membuat piring Anda!</p>
           </div>
         </div>
 
@@ -115,33 +115,34 @@
           </div>
   
           <!-- Tombol Simpan -->
-          <button @click="submitPlate" class="mt-2 px-6 py-2 bg-green-500 text-white rounded">
+          <button @click="submitPlate" class="my-2 lg:my-4 px-6 py-2 bg-green-500 text-white rounded lg:text-xl">
             Simpan Pilihan
           </button>
         </div>
 
       </div>
 
-      <div v-show="currentPage === 0" class="absolute bottom-8 left-[100px] md:w-40 z-10">
-        <div class="relative items-center w-52 md:w-56">
-          <Element src="/element/cloud2.png" customClass="w-48 -scale-x-100"/>
-          <div class="absolute w-36 h-32 inset-5 pb-8 flex items-center justify-center px-2 text-xs text-center font-semibold text-black">
+      <div v-show="currentPage === 0" class="absolute bottom-8 lg:bottom-1/3 left-[100px] lg:left-44 md:w-40 lg:w-60 z-10">
+        <div class="relative items-center w-52 md:w-56 lg:w-72">
+          <Element src="/element/cloud2.png" customClass="w-48 lg:w-72 -scale-x-100"/>
+          <div class="absolute w-36 h-32 lg:h-40 lg:w-52 inset-5 lg:inset-10 pb-8 flex items-center justify-center px-2 text-xs lg:text-lg text-center font-semibold text-black">
             Ayo hitung BMR kamu, dan susun menu makanan berdasarkan kebutuhan kalori harianmu!
           </div>
         </div>
       </div>
       
-      <div class="absolute -bottom-20 -left-5 md:w-40 -scale-x-100 z-10">
-        <ChefRight class="w-36"/>
+      <div class="absolute -bottom-20 -left-5 md:w-40 lg:w-60 -scale-x-100 z-10">
+        <ChefRight class="w-36 lg:w-60"/>
       </div>
 
-      <Element v-show="currentPage === 2" src="/element/strawberry.png" customClass="absolute top-5 left-5 w-10"/>
-      <Element v-show="currentPage === 2" src="/element/potato.png" customClass="absolute top-20 left-5 w-10"/>
-      <Element v-show="currentPage === 2" src="/element/lemon.png" customClass="absolute top-0 left-24 w-10"/>
-      <Element v-show="currentPage === 2" src="/element/shallot.png" customClass="absolute -top-1 right-5 w-12"/>
-      <Element v-show="currentPage === 2" src="/element/paprica.png" customClass="absolute top-2 right-28 w-10"/>
-      <Element v-show="currentPage === 2" src="/element/brocolis.png" customClass="absolute bottom-24 left-1/2 w-12"/>
-      <Element v-show="currentPage === 2" src="/element/mango.png" customClass="absolute bottom-16 left-90 w-12"/>
+      <Element v-show="currentPage === 2" src="/element/strawberry.png" customClass="absolute top-5 lg:top-10 left-5 lg:left-10 w-10 lg:w-16"/>
+      <Element v-show="currentPage === 2" src="/element/potato.png" customClass="absolute top-20 lg:top-36 left-5 lg:left-10 w-10 lg:w-16"/>
+      <Element v-show="currentPage === 2" src="/element/lemon.png" customClass="absolute top-0 lg:top-5 left-24 lg:left-52 w-10 lg:w-16"/>
+      <Element v-show="currentPage === 2" src="/element/pear.png" customClass="absolute top-0 md:top-2 lg:top-5 left-24 md:left-52 lg:left-1/3 w-10 lg:w-16"/>
+      <Element v-show="currentPage === 2" src="/element/shallot.png" customClass="absolute -top-1 right-5 w-12 lg:w-16"/>
+      <Element v-show="currentPage === 2" src="/element/paprica.png" customClass="absolute top-2 right-28 lg:right-1/4 w-10 lg:w-16"/>
+      <Element v-show="currentPage === 2" src="/element/brocolis.png" customClass="absolute bottom-24 lg:bottom-1/3 left-1/2 w-12 lg:w-16"/>
+      <Element v-show="currentPage === 2" src="/element/mango.png" customClass="absolute bottom-16 md:bottom-36 lg:bottom-2/4 left-90 w-12 lg:w-16"/>
     </div>
     <!-- GOOD JOB -->
     <div v-show="currentPage === 3" class="relative justify-center items-end w-[80%] h-[80%] p-2 bg-rose-400 bg-opacity-90">
@@ -156,7 +157,7 @@
         <Element src="/element/mango.png" customClass="absolute bottom-12 left-40 w-12"/>
         <Element src="/element/tomato.png" customClass="absolute bottom-10 right-20 w-12"/>
         <LilitaText class="text-stroke-4 text-black text-7xl">GOOD JOB</LilitaText>
-        <p class="text-white text-xs w-3/4 text-center font-semibold">Yeay, kamu berhasil menyelesaikan gamenya! 🏅 Cek BMR dan pilihan nutrisi kamu luar biasa.
+        <p class="text-white text-xs lg:text-xl w-3/4 lg:w-3/5 text-center font-semibold">Yeay, kamu berhasil menyelesaikan gamenya! 🏅 Cek BMR dan pilihan nutrisi kamu luar biasa.
           Saatnya kembali ke Home dan lanjutkan perjalanan sehatmu!</p>
         <div class="flex w-full justify-center mt-2">
           <button @click="handleClick('/home')" class="w-32 py-2 px-2 rounded-full bg-blue-900">
@@ -165,7 +166,7 @@
         </div>
       </div>
       <div class="absolute bottom-3 left-0">
-        <Element src="/element/nice-chef.png" class="w-40"></Element>
+        <Element src="/element/nice-chef.png" class="w-40 lg:w-72"></Element>
       </div>
     </div>
     <!-- END OF GOOD JOB -->
