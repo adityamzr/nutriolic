@@ -75,8 +75,9 @@ const handleLogin = async () => {
     const expiresAt = Date.now() + (7200 * 1000);
     localStorage.setItem('token', data.token);
     localStorage.setItem('expires_at', expiresAt);
-
-    router.push('/menu');
+    
+    if(data.is_admin == true) router.push('/admin');
+    else router.push('/menu');
   } catch (err) {
     console.error(err);
     showServerErrorModal.value = true;
