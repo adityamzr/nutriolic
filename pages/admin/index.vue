@@ -99,7 +99,7 @@ const users = ref([])
 const loading = ref(true)
 const searchQuery = ref('')
 const currentPage = ref(1)
-const perPage = 5
+const perPage = 10
 const showModalLogout = ref(false);
 
 const API_URL = useRuntimeConfig().public.API_BASE_URL
