@@ -297,9 +297,9 @@
                         <td class="border text-center">{{ detail?.piringku?.p9['data' + (i+1)].calorieNeeded }}</td>
                         <td class="border text-center">{{ detail?.piringku?.p9['data' + (i+1)].lunchMenu }}</td>
                         <td class="border text-center">{{ detail?.piringku?.p9['data' + (i+1)].proportion }}</td>
-                        <td class="border text-center">{{ detail?.piringku.p9['data' + (i+1)].totalCalorie }}</td>
-                        <td class="border text-center">{{ detail?.piringku.p9['data' + (i+1)].analysis }}</td>
-                        <td class="border text-center">{{ detail?.piringku.p9['data' + (i+1)].impact }}</td>
+                        <td class="border text-center">{{ detail?.piringku?.p9['data' + (i+1)].totalCalorie }}</td>
+                        <td class="border text-center">{{ detail?.piringku?.p9['data' + (i+1)].analysis }}</td>
+                        <td class="border text-center">{{ detail?.piringku?.p9['data' + (i+1)].impact }}</td>
                       </tr>
                     </tbody>
                   </table>
